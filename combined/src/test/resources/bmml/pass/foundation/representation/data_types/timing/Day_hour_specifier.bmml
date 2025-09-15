@@ -1,0 +1,50 @@
+| 
+| 	description: Day_hour_specifier class
+| 	keywords:    SPLASH data value model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types
+
+
+class Day_hour_specifier
+    is_a Occurrence_times_specifier
+
+feature_group("access")
+
+    |
+    | Specification of days within a week or month, or other possible bounding period.
+    | The value both human- and machine-readable. It takes one of the following forms:
+    |
+    | * the string `"daily"`:
+    | ** the fixed string `"daily"`, to mean every day.
+    | * days in week - a string of the form `"week: Mo, Tu, Fr, ..."`, where the part following the colon is a comma-separated list of day codes, as follows:
+    | ** Monday: `"Mo"`;
+    | ** Tuesday: `"Tu"`;
+    | ** Wednesday: `"We"`;
+    | ** Thursday: `"Th"`;
+    | ** Friday: `"Fr"`;
+    | ** Saturday: `"Sa"`;
+    | ** Sunday: `"Su"`.
+    | * days in month: a string of the form "month: 01, 14, ..."` where the part following the colon is a comma-separated list of items which can be:
+    | ** 2-digit day numbers from "01" to" 31";
+    | ** keywords: `"first"`, `"last"`, `"second-last"`, etc.
+    |
+    | The string value is treated as case-insensitive, and whitespace is ignored. Consequently, mixed case and spacing can be used to improve human-readability.
+    |
+    | The value 'every day' can be represented by a full week or month list, or for convenience, the value `"daily"`.
+    |
+    days_spec: String [1];
+
+    |
+    | a string pattern like "1/3" or "2/4" whose numerator is the position of the occurrences base period,
+    | and whose denominator is the number of base periods in a full cycle
+    |
+    cycle_pattern: String [1];
+
+    times_of_day: Hour_specifier [*, list];
+end
+

@@ -1,0 +1,26 @@
+| 
+| 	description: Boolean_value class
+| 	keywords:    SPLASH data value model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types
+
+
+class Boolean_value 
+    is_a Data_value 
+
+feature_group ("access")
+
+    value: Boolean [1];
+
+    true_term: Terminology_term [1];
+
+    false_term: Terminology_term [1];
+
+end
+
+

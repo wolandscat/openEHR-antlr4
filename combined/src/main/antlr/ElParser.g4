@@ -24,28 +24,28 @@ declaration:
     | constantDeclaration
     ;
 
-variableDeclaration: instantiableRef ':' typeId ( SYM_ASSIGNMENT expression )? ;
+variableDeclaration: elInstantiableRef ':' typeId ( SYM_ASSIGNMENT elExpression )? ;
 
-constantDeclaration: constantId ':' typeId ( SYM_EQ expression )? ;
+constantDeclaration: elConstantId ':' typeId ( SYM_EQ elExpression )? ;
 
-assignment: valueGenerator SYM_ASSIGNMENT expression ;
+assignment: elValueGenerator SYM_ASSIGNMENT elExpression ;
 
-assertion: ( ( LC_ID | UC_ID ) ':' )? SYM_ASSERT booleanExpr ;
+assertion: ( ( LC_ID | UC_ID ) ':' )? SYM_ASSERT elBooleanExpr ;
 
 // ========================== EL Expressions ==========================
 
 //
 // Expressions are either value-generators, or operator expressions (containing value-generators)
 //
-expression:
-      terminal
-    | operatorExpression
-    | tuple
+elExpression:
+      elTerminal
+    | elOperatorExpression
+    | elTuple
     ;
 
-operatorExpression:
-      booleanExpr
-    | arithmeticExpr
+elOperatorExpression:
+      elBooleanExpr
+    | elArithmeticExpr
     ;
 
 // ------------------- Boolean-returning operator expressions --------------------
@@ -54,38 +54,38 @@ operatorExpression:
 // Expressions evaluating to boolean values, using standard precedence;
 // These map to ordinary 1- and 2-argument function calls on Boolean instances
 //
-booleanExpr:
-      SYM_NOT booleanExpr
-    | booleanExpr SYM_AND booleanExpr
-    | booleanExpr SYM_XOR booleanExpr
-    | booleanExpr SYM_OR booleanExpr
-    | booleanExpr SYM_IMPLIES booleanExpr
-    | booleanExpr ( SYM_IFF | SYM_EQ ) booleanExpr
-    | booleanLeaf
+elBooleanExpr:
+      SYM_NOT elBooleanExpr
+    | elBooleanExpr SYM_AND elBooleanExpr
+    | elBooleanExpr SYM_XOR elBooleanExpr
+    | elBooleanExpr SYM_OR elBooleanExpr
+    | elBooleanExpr SYM_IMPLIES elBooleanExpr
+    | elBooleanExpr ( SYM_IFF | SYM_EQ ) elBooleanExpr
+    | elBooleanLeaf
     ;
 
 //
 // Atomic Boolean-valued expression elements
 //
-booleanLeaf:
+elBooleanLeaf:
       booleanValue
-    | forAllExpr
-    | thereExistsExpr
-    | arithmeticConstraintExpr
-    | generalConstraintExpr
-    | '(' booleanExpr ')'
-    | SYM_DEFINED '(' valueGenerator ')'
-    | arithmeticComparisonExpr
-    | objectComparisonExpr
-    | valueGenerator
+    | elForAllExpr
+    | elThereExistsExpr
+    | elArithmeticConstraintExpr
+    | elGeneralConstraintExpr
+    | '(' elBooleanExpr ')'
+    | SYM_DEFINED '(' elValueGenerator ')'
+    | elArithmeticComparisonExpr
+    | elObjectComparisonExpr
+    | elValueGenerator
     ;
 
 //
 //  Universal and existential quantifier
 //
-forAllExpr: SYM_FOR_ALL localVariableId ':' valueGenerator '|' booleanExpr ;
+elForAllExpr: SYM_FOR_ALL elLocalVariableId ':' elValueGenerator '|' elBooleanExpr ;
 
-thereExistsExpr: SYM_THERE_EXISTS localVariableId ':' valueGenerator '|' booleanExpr ;
+elThereExistsExpr: SYM_THERE_EXISTS elLocalVariableId ':' elValueGenerator '|' elBooleanExpr ;
 
 // Constraint expressions
 // This provides a way of using one operator (matches) to compare a
@@ -101,18 +101,18 @@ thereExistsExpr: SYM_THERE_EXISTS localVariableId ':' valueGenerator '|' boolean
 // may be used within an expression like any other Boolean (hence it
 // is a booleanLeaf).
 // TODO: non-primitive objects might be supported on the RHS in future.
-arithmeticConstraintExpr: arithmeticLeaf SYM_MATCHES '{' cInlineOrderedObject '}' ;
+elArithmeticConstraintExpr: elArithmeticLeaf SYM_MATCHES '{' cInlineOrderedObject '}' ;
 
-generalConstraintExpr: simpleTerminal SYM_MATCHES '{' cObjectMatcher '}' ;
+elGeneralConstraintExpr: elSimpleTerminal SYM_MATCHES '{' cObjectMatcher '}' ;
 
 // --------------------------- Arithmetic operator expressions --------------------------
 
 //
 // Comparison expressions of arithmetic operands generating Boolean results
 //
-arithmeticComparisonExpr: arithmeticExpr comparisonBinop arithmeticExpr ;
+elArithmeticComparisonExpr: elArithmeticExpr elComparisonBinop elArithmeticExpr ;
 
-comparisonBinop:
+elComparisonBinop:
       SYM_EQ
     | SYM_NE
     | SYM_GT
@@ -124,22 +124,22 @@ comparisonBinop:
 //
 // Expressions evaluating to values of arithmetic types, using standard precedence
 //
-arithmeticExpr:
-      <assoc=right> arithmeticExpr '^' arithmeticExpr
-    | arithmeticExpr ( '/' | SYM_ASTERISK | '%' ) arithmeticExpr
-    | arithmeticExpr ( '+' | '-' ) arithmeticExpr
-    | arithmeticLeaf
+elArithmeticExpr:
+      <assoc=right> elArithmeticExpr '^' elArithmeticExpr
+    | elArithmeticExpr ( '/' | SYM_ASTERISK | '%' ) elArithmeticExpr
+    | elArithmeticExpr ( '+' | '-' ) elArithmeticExpr
+    | elArithmeticLeaf
     ;
 
 // TODO: need to be able to plug in terminal to allow decision tables in expressions
-arithmeticLeaf:
-      arithmeticValue
-    | '(' arithmeticExpr ')'
-    | valueGenerator
-    | simpleCaseTable
+elArithmeticLeaf:
+      elArithmeticValue
+    | '(' elArithmeticExpr ')'
+    | elValueGenerator
+    | dlSimpleCaseTable
     ;
 
-arithmeticValue:
+elArithmeticValue:
       integerValue
     | realValue
     | dateValue
@@ -153,9 +153,9 @@ arithmeticValue:
 //
 // Compare any kind of objects
 //
-objectComparisonExpr: simpleTerminal equalityBinop simpleTerminal ;
+elObjectComparisonExpr: elSimpleTerminal elEqualityBinop elSimpleTerminal ;
 
-equalityBinop:
+elEqualityBinop:
     SYM_EQ
   | SYM_NE
   ;
@@ -164,37 +164,37 @@ equalityBinop:
 // -------------------------- tuples -----------------------------
 //
 
-tuple: '[' expression ( ',' expression )+ ']';
+elTuple: '[' elExpression ( ',' elExpression )+ ']';
 
 //
 // -------------------------- value-generating expressions -----------------------------
 //
 
-terminal:
-      simpleTerminal
-    | decisionTable
+elTerminal:
+      elSimpleTerminal
+    | dlDecisionTable
     ;
 
-simpleTerminal:
+elSimpleTerminal:
       primitiveObject
-    | valueGenerator
+    | elValueGenerator
     ;
 
 //
 // TODO: Can't syntactically distinguish between a local or other variable id
 // and a property or constant reference.
 //
-valueGenerator:
-      bareRef
-    | scopedFeatureRef
+elValueGenerator:
+      elBareRef
+    | elScopedFeatureRef
     | typeRef
     ;
 
-bareRef:
-      boundVariableId
-    | staticRef
-    | localRef
-    | functionCall
+elBareRef:
+      elBoundVariableId
+    | elStaticRef
+    | elLocalRef
+    | elFunctionCall
     ;
 
 //
@@ -202,75 +202,76 @@ bareRef:
 // initial capital in the id.
 // Will map to EL_READABLE_VARIABLE or EL_STATIC_REF (unscoped)
 //
-staticRef:
+elStaticRef:
       SYM_SELF
-    | constantId
+    | elConstantId
     ;
 
 //
 // Local writable reference, distinguished by use of initial lowercase id
 // Will map to EL_WRITABLE_VARIABLE or EL_PROPERTY_REF (unscoped)
 //
-localRef:
+elLocalRef:
       SYM_RESULT
-    | localVariableId
+    | elLocalVariableId
     ;
 
 //
 // scoped feature references.
 // Will map to any EL_FEATURE_REF (scoped)
 //
-scopedFeatureRef: scoper featureRef ;
+elScopedFeatureRef: elScoper elFeatureRef ;
 
-scoper: ( typeRef '.' )? ( bareRef '.' )* ;
+elScoper: ( typeRef '.' )? ( elBareRef '.' )* ;
 
 typeRef: '{' typeId '}' ;
 
 typeId: UC_ID ( '<' typeId ( ',' typeId )* '>' )? ;
 
-featureRef:
-      functionCall
-    | instantiableRef
+elFeatureRef:
+      elFunctionCall
+    | elInstantiableRef
     ;
 
 //
 // Instantiable feature refs
 //
-instantiableRef:
-      boundVariableId
-    | localVariableId
-    | constantId
+elInstantiableRef:
+      elBoundVariableId
+    | elLocalVariableId
+    | elConstantId
     ;
 
 //
+// A variable bound to a data source, lexical form '$xxxx'
 // TODO: analyse how a boundVariableId can be created as a built-in feature
 //
-boundVariableId: BOUND_VARIABLE_ID ;
+elBoundVariableId: BOUND_VARIABLE_ID ;
 
-localVariableId: LC_ID ;
+elLocalVariableId: LC_ID ;
 
-constantId: UC_ID ;
+elConstantId: UC_ID ;
 
 //
 // Function calls
 //
-functionCall: LC_ID '(' exprList? ')' ';'? ;
+elFunctionCall: LC_ID '(' elExprList? ')' ';'? ;
 
-exprList: expression ( ',' expression )* ;
+elExprList: elExpression ( ',' elExpression )* ;
 
 //
 // -------------------------- decision tables -----------------------------
 //
 
-decisionTable:
-      binaryChoice
-    | caseTable
-    | conditionTable
+dlDecisionTable:
+      dlBinaryChoice
+    | dlCaseTable
+    | dlConditionTable
     ;
 
-caseTable:
-    | simpleCaseTable
-    | generalCaseTable
+dlCaseTable:
+    | dlSimpleCaseTable
+    | dlGeneralCaseTable
     ;
 
 //
@@ -289,18 +290,18 @@ caseTable:
 //   =========================================================
 //   ;
 //
-conditionTable: SYM_CHOICE SYM_IN ( conditionBranch ',' )+ ( conditionBranch | conditionDefaultBranch ) ';' ;
+dlConditionTable: SYM_CHOICE SYM_IN ( dlConditionBranch ',' )+ ( dlConditionBranch | dlConditionDefaultBranch ) ';' ;
 
-conditionBranch: booleanExpr ':' expression ;
+dlConditionBranch: elBooleanExpr ':' elExpression ;
 
-conditionDefaultBranch: SYM_ASTERISK ':' expression ;
+dlConditionDefaultBranch: SYM_ASTERISK ':' elExpression ;
 
 //
 // Binary-choice version of condition table, using old-school
 // C/Java syntax:
 // booleanExpr ? x : y ;
 //
-binaryChoice:  booleanExpr '?' simpleTerminal ':' simpleTerminal ;
+dlBinaryChoice:  elBooleanExpr '?' elSimpleTerminal ':' elSimpleTerminal ;
 
 //
 // Case tables, e.g.:
@@ -318,11 +319,11 @@ binaryChoice:  booleanExpr '?' simpleTerminal ':' simpleTerminal ;
 //        ============================
 //     ;
 //
-generalCaseTable: SYM_CASE expression SYM_IN ( generalCaseBranch ',' )+ ( generalCaseBranch | generalCaseDefaultBranch ) ';' ;
+dlGeneralCaseTable: SYM_CASE elExpression SYM_IN ( dlGeneralCaseBranch ',' )+ ( dlGeneralCaseBranch | dlGeneralCaseDefaultBranch ) ';' ;
 
-generalCaseBranch: primitiveObject ':' expression ;
+dlGeneralCaseBranch: primitiveObject ':' elExpression ;
 
-generalCaseDefaultBranch: SYM_ASTERISK ':' expression ;
+dlGeneralCaseDefaultBranch: SYM_ASTERISK ':' elExpression ;
 
 //
 // Simple value-based (typed) Case tables, e.g.:
@@ -334,8 +335,8 @@ generalCaseDefaultBranch: SYM_ASTERISK ':' expression ;
 //   =================
 //   ;
 //
-simpleCaseTable: SYM_CASE simpleTerminal SYM_IN ( simpleCaseBranch ',' )+ ( simpleCaseBranch | simpleCaseDefaultBranch ) ';' ;
+dlSimpleCaseTable: SYM_CASE elSimpleTerminal SYM_IN ( dlSimpleCaseBranch ',' )+ ( dlSimpleCaseBranch | dlSimpleCaseDefaultBranch ) ';' ;
 
-simpleCaseBranch: primitiveObject ':' simpleTerminal ;
+dlSimpleCaseBranch: primitiveObject ':' elSimpleTerminal ;
 
-simpleCaseDefaultBranch: SYM_ASTERISK ':' simpleTerminal ;
+dlSimpleCaseDefaultBranch: SYM_ASTERISK ':' elSimpleTerminal ;

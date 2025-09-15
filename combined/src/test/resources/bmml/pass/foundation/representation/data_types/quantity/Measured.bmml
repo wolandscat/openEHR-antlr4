@@ -1,0 +1,32 @@
+| 
+| 	description: Measured class
+| 	keywords:    SPLASH data value model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types
+
+
+class Measured <V: Measurable>
+    is_a Ordered_datum
+
+feature_group("access")
+
+    value: V [1];
+
+    reference_ranges: Reference_range<V> [*, list];
+
+feature_group("runtime")
+
+    accuracy: Quantity [0..1];
+
+    value_status: Comparison_operator [0..1];
+    
+    interpretation: Coded_text <<splash-lang.QuantitativeInterpretation>> [0..1];
+
+    interpretation_guide: Text [0..1];
+
+end

@@ -1,0 +1,31 @@
+| 
+| 	description: Multimedia class
+| 	keywords:    SPLASH data value model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types
+
+
+class Multimedia
+    is_a Encapsulated
+
+feature_group("access")
+
+    alternate_text: String [0..1];
+
+    data: Byte [*, array];
+
+    media_type: Terminology_code <<iana_media-types>> [1];
+
+    hash: String [0..1];
+
+    thumbnail: Multimedia [0..1];
+
+    size: Integer
+
+end
+

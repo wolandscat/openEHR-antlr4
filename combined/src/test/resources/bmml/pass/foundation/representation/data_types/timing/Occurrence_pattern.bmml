@@ -1,0 +1,26 @@
+| 
+| 	description: Occurrence_pattern class
+| 	keywords:    SPLASH data value model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types
+
+class Occurrence_pattern
+    is_a Any
+
+feature_group("access")
+
+    occurrence_times: Occurrence_times_specifier [*];
+
+    total_event_count: Integer [0..1];
+
+    bounding_period: Interval <Date> [0..1];
+
+    pattern_coded: Terminology_term [0..1];
+
+end
+

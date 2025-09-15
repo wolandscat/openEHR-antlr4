@@ -1,0 +1,25 @@
+| 
+| 	description: Customary_time class
+| 	keywords:    SPLASH data value model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types
+
+
+class Customary_time
+    is_a Hour_specifier
+
+feature_group("access")
+
+    reference_event: Terminology_term <<splash-lang.TimingEvent>> [1];
+
+    offset: Duration [0..1];
+
+    temporal_relation: Temporal_relation [0..1];
+
+end
+

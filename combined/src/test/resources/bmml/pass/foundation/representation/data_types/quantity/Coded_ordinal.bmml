@@ -1,0 +1,26 @@
+| 
+| 	description: Coded_ordinal class
+| 	keywords:    SPLASH data value model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types
+
+
+|
+| Used to record values that are reported as terms that are considered ordered, such as `{"small", "medium", "large"}`
+| The rank establishes the ordering.
+|
+class Coded_ordinal 
+    is_a Ordered_value
+
+feature_group("access")
+
+    rank: Integer [1];
+
+    concept: Terminology_term [1];
+
+end
