@@ -25,13 +25,18 @@ WS       : [ \t\r]+     -> skip ;
 // ----------------------- keywords -----------------------
 SYM_CLASS     : 'class' ;
 SYM_ABSTRACT  : 'abstract' ;
-SYM_INHERIT   : 'inherit' ;
+SYM_INHERIT   : 'is_a' ;
 SYM_CONSTANT  : 'constant' ;
 SYM_PROPERTY  : 'property' ;
+SYM_FUNCTION  : 'func' ;
+SYM_PROCEDURE : 'proc' ;
+SYM_FEATURE_GROUP : 'feature_group' ;
+SYM_INVARIANT: 'invariant';
 
 // --------- symbols ----------
 SYM_ZERO: '0' ;
 SYM_ONE: '1' ;
+SYM_NULLABLE_TYPE_DECL: ':?' ;
 
 //SYM_ASSIGNMENT: ':=' ;
 //SYM_COLON : ':' ;

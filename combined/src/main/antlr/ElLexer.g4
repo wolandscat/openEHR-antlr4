@@ -15,8 +15,11 @@ channels {
 }
 
 // ------------------ lines and comments ------------------
-CMT_LINE : '--' .*? EOL -> channel(COMMENT) ;
+CMT_LINE : '--' ~[\r\n]* -> channel(COMMENT) ;
 TABLE_CMT_LINE : '===' '='* EOL -> channel(COMMENT) ;
+BLOCK_CMT_LINE_EMPTY : WS* '|' WS* EOL -> channel(COMMENT) ;
+BLOCK_CMT_LINE : WS+ '|' [ \t] ~[\r\n]+ -> channel(COMMENT) ;
+
 EOL      : '\r'? '\n'   -> channel(HIDDEN) ;
 WS       : [ \t\r]+     -> channel(HIDDEN) ;
 

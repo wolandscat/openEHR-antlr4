@@ -20,13 +20,13 @@ statementBlock: statement+ EOF? ;
 statement: declaration | assignment | assertion ;
 
 declaration:
-      variableDeclaration
-    | constantDeclaration
+      variableDecl
+    | constantDecl
     ;
 
-variableDeclaration: elInstantiableRef ':' typeId ( SYM_ASSIGNMENT elExpression )? ;
+variableDecl: elInstantiableRef ':' typeId ( SYM_ASSIGNMENT elExpression )? ;
 
-constantDeclaration: UC_ID ':' typeId SYM_EQ elExpression ;
+constantDecl: UC_ID ':' typeId SYM_EQ elExpression ;
 
 assignment: elValueGenerator SYM_ASSIGNMENT elExpression ;
 
@@ -255,7 +255,7 @@ elConstantId: UC_ID ;
 //
 // Function calls
 //
-elFunctionCall: LC_ID '(' elExprList? ')' ';'? ;
+elFunctionCall: LC_ID ( '(' elExprList ')' )? ;
 
 elExprList: elExpression ( ',' elExpression )* ;
 

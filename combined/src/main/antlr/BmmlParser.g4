@@ -13,42 +13,49 @@ import ElParser;
 
 // ========================== BMML Classes ==========================
 
-bmmClass: SYM_ABSTRACT? SYM_CLASS (SYM_INHERIT typeId ( ',' typeId )* )? bmmFeature+ bmmInvariant* ;
+bmmClass: SYM_ABSTRACT? SYM_CLASS typeDecl bmmClassInheritDecl? bmmFeatureGroupDecl+ bmmInvariantDecl? ;
 
+bmmClassInheritDecl: SYM_INHERIT typeId ( ',' typeId )* ;
 
 // -------------------- constants, singletons, properties -------------------
 
-bmmFeature: ( bmmInstantiableFeature | bmmRoutine ) ';' ;
+bmmFeatureGroupDecl: SYM_FEATURE_GROUP '(' LC_ID ')' bmmFeatureDecl+ ;
 
-bmmInstantiableFeature: bmmStatic | bmmProperty ;
+bmmFeatureDecl: ( bmmInstantiableFeatureDecl | bmmRoutineDecl ) ';' ;
 
-bmmStatic: constantDeclaration | bmmSingleton ;
+bmmInstantiableFeatureDecl: bmmStaticDecl | bmmPropertyDecl ;
 
-bmmSingleton: UC_ID ':' typeSpecifier SYM_EQ statementBlock ;
+bmmStaticDecl: constantDecl | bmmSingletonDecl ;
 
-bmmProperty: SYM_PROPERTY typeSpecifier ;
+bmmSingletonDecl: UC_ID ':' typeSpecifier SYM_EQ statementBlock ;
+
+bmmPropertyDecl: SYM_PROPERTY LC_ID ( ':' | ':?' ) typeSpecifier ;
 
 
 // ------------------------------ routines -----------------------------------
 
-bmmRoutine: bmmProcedure | bmmFunction ;
+bmmRoutineDecl: bmmProcedureDecl | bmmFunctionDecl ;
 
-bmmProcedure: ;
+bmmProcedureDecl: SYM_PROCEDURE LC_ID bmmArgsDecl? ;
 
-bmmFunction: typeId ;
+bmmFunctionDecl: SYM_FUNCTION LC_ID bmmArgsDecl? ( ':' | ':?' ) typeSpecifier ;
+
+// nullable args not allowed - use overloads
+bmmArgsDecl: '(' bmmArgDecl ( ',' bmmArgDecl )* ')' ;
+bmmArgDecl: UC_ID ':' typeSpecifier ;
 
 // ------------------------------ invariants -----------------------------------
 
-bmmInvariant: ;
+bmmInvariantDecl: SYM_INVARIANT assertion+ ;
 
 // ------------------------------ types -----------------------------------
 
-typeSpecifier: typeId bmmMultiplicity? bmmNullableMarker? ;
+typeSpecifier: typeId bmmMultiplicity? ;
 
 bmmMultiplicity: '[' (( '0' | '1' ) '..' )? '*' ( multiplicityMod multiplicityMod? )? ']' ;
-bmmNullableMarker: '?' ;
 
-typeId: UC_ID ( '<' typeId ( ',' typeId )* '>' )? ;
+typeDecl: UC_ID ( '<' typeConstrained ( ',' typeConstrained )* '>' )? ;
+typeConstrained: UC_ID ( ':' typeId )? ;
 
 
 
