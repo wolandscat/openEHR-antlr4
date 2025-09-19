@@ -23,13 +23,13 @@ feature_group("access")
     |
     | Numeric ranking allows ordering of numeric and non-numeric ranges to be defined 
     |
-    rank: Integer?;
+    rank:? Integer;
 
-    range_lower: Decimal?;
+    range_lower:? Decimal;
 
-    range_upper: Decimal?;
+    range_upper:? Decimal;
 
-    units: Terminology_term?;
+    units:? Terminology_term;
 
     |
     | A textual description or reference to an online resource describing the value

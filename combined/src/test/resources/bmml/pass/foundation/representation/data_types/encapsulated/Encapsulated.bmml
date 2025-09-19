@@ -15,9 +15,9 @@ abstract class Encapsulated
 
 feature_group("access")
 
-    language: Terminology_code <<iso_639-1>>?;
+    language:? Terminology_code <<iso_639-1>>;
 
-    uri: Uri?;
+    uri:? Uri;
 
 end
 

@@ -17,9 +17,9 @@ feature_group("access")
 
     reference_event: Terminology_term <<splash-lang.TimingEvent>>;
 
-    offset: Duration?;
+    offset:? Duration;
 
-    temporal_relation: Temporal_relation?;
+    temporal_relation:? Temporal_relation;
 
 end
 

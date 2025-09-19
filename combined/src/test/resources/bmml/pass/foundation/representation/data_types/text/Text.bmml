@@ -18,13 +18,13 @@ feature_group ("access")
 
 feature_group ("infrastructure")
 
-    language: Terminology_code?;
+    language:? Terminology_code;
 
-    encoding: Terminology_code?;
+    encoding:? Terminology_code;
 
 feature_group ("runtime")
 
-    formatting: Text_format_types?;
+    formatting:? Text_format_types;
 
 end
 

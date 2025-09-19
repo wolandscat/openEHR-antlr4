@@ -15,15 +15,15 @@ class Multimedia
 
 feature_group("access")
 
-    alternate_text: String?;
+    alternate_text:? String;
 
     data: Byte [*, array];
 
     media_type: Terminology_code <<iana_media-types>>;
 
-    hash: String?;
+    hash:? String;
 
-    thumbnail: Multimedia?;
+    thumbnail:? Multimedia;
 
     size: Integer
 

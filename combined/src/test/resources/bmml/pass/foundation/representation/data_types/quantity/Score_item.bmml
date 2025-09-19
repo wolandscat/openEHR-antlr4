@@ -23,6 +23,6 @@ feature_group("access")
 
     value: Integer;
 
-    concept: Terminology_term?;
+    concept:? Terminology_term;
 
 end

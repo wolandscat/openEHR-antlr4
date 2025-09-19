@@ -17,7 +17,7 @@ feature_group("access")
 
     period: Duration;
 
-    period_upper: Duration?;
+    period_upper:? Duration;
 
 end
 

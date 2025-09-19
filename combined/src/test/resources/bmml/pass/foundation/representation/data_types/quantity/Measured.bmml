@@ -17,7 +17,7 @@ feature_group("access")
 
     value: V;
 
-    reference_ranges: Reference_range<V> [*, list]?;
+    reference_ranges:? Reference_range<V> [*, list];
 
 feature_group("runtime")
 
@@ -26,12 +26,12 @@ feature_group("runtime")
     | measurement units, or with '%' pseudo-units
     | Example: 0.1V means ±0.1V; 3% means ±3%
     |
-    accuracy: Quantity?;
+    accuracy:? Quantity;
 
-    value_status: Comparison_operator?;
+    value_status:? Comparison_operator;
     
     interpretation: Coded_text <<splash-lang.QuantitativeInterpretation>>;
 
-    interpretation_guide: Text?;
+    interpretation_guide:? Text;
 
 end

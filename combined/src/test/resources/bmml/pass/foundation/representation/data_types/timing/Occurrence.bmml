@@ -20,9 +20,9 @@ feature_group("access")
 
     date: Date;
 
-    date_upper: Date?;
+    date_upper:? Date;
 
-    times_of_day: Hour_specifier [*]?;
+    times_of_day:? Hour_specifier [*];
 
 end
 

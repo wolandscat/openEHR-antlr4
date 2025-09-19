@@ -20,15 +20,15 @@ feature_group("access")
 
     occurrence_times: Occurrence_times_specifier [*];
 
-    total_event_count: Integer?;
+    total_event_count:? Integer;
 
-    bounding_period: Interval <Date>?;
+    bounding_period:? Interval <Date>;
 
     |
     | Additional coded term used for common patterns; must match the
     | semantics of the structured representation in `occurrence_times`
     |
-    pattern_coded: Terminology_term?;
+    pattern_coded:? Terminology_term;
 
 end
 

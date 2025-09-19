@@ -17,11 +17,11 @@ feature_group ("access")
 
     id: String;
 
-    issuer: String?;
+    issuer:? String;
 
-    assigner: String?;
+    assigner:? String;
 
-    type: String?;
+    type:? String;
 
 end
 

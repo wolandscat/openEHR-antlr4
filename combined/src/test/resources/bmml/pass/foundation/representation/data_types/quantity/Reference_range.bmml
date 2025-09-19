@@ -19,6 +19,6 @@ feature_group("access")
 
     range: Range <V>;
 
-    phenotype: Text?;
+    phenotype:? Text;
 
 end

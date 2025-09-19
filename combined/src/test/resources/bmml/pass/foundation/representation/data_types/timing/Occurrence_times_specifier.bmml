@@ -16,6 +16,6 @@ feature_group("access")
 
     event_count: Integer;
 
-    event_count_upper: Integer?;
+    event_count_upper:? Integer;
 					  
 end
