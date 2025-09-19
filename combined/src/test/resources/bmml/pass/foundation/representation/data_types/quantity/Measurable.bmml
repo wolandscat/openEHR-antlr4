@@ -18,7 +18,7 @@ feature_group("access")
     precision: Integer;
 
     effective_value: Decimal
-        Result := ?
+        deferred
         ;
 
 end

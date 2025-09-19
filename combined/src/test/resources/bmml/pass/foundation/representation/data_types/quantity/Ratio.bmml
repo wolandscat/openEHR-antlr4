@@ -17,7 +17,7 @@ feature_group("access")
 
     numerator: Decimal;
 
-    denomiator: Decimal;
+    denominator: Decimal;
 
     type: Ratio_kind;
 

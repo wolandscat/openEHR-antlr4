@@ -41,10 +41,11 @@ feature_group("access")
 
     |
     | a string pattern like "1/3" or "2/4" whose numerator is the position of the occurrences base period,
-    | and whose denominator is the number of base periods in a full cycle
+    | and whose denominator is the number of base periods in a full cycle. Defaults to "1/1"
     |
     cycle_pattern: String;
 
     times_of_day: Hour_specifier [*, list];
+
 end
 
