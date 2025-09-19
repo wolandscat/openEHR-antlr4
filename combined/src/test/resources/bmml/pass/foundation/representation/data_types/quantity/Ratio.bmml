@@ -15,11 +15,11 @@ class Ratio
 
 feature_group("access")
 
-    numerator: Decimal [1];
+    numerator: Decimal;
 
-    denomiator: Decimal [1];
+    denomiator: Decimal;
 
-    type: Ratio_kind [1];
+    type: Ratio_kind;
 
 end
 

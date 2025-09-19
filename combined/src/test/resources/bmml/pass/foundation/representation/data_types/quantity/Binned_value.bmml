@@ -18,24 +18,24 @@ class Binned_value
 
 feature_group("access")
 
-    range: Text [1];
+    range: Text;
 
     |
     | Numeric ranking allows ordering of numeric and non-numeric ranges to be defined 
     |
-    rank: Integer [0..1];
+    rank: Integer?;
 
-    range_lower: Decimal [0..1];
+    range_lower: Decimal?;
 
-    range_upper: Decimal [0..1];
+    range_upper: Decimal?;
 
-    units: Terminology_term [0..1];
+    units: Terminology_term?;
 
     |
     | A textual description or reference to an online resource describing the value
     | stratification of which this is an instance
     |
-    description: Text [1];
+    description: Text;
 
 end
 

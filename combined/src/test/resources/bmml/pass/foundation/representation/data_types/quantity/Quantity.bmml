@@ -15,8 +15,8 @@ class Quantity
 
 feature_group("access")
 
-    magnitude: Decimal [1];
+    magnitude: Decimal;
 
-    units: Terminology_term [1];
+    units: Terminology_term;
 
 end

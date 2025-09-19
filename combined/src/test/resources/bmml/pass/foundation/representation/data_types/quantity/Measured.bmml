@@ -15,18 +15,23 @@ class Measured <V: Measurable>
 
 feature_group("access")
 
-    value: V [1];
+    value: V;
 
-    reference_ranges: Reference_range<V> [*, list];
+    reference_ranges: Reference_range<V> [*, list]?;
 
 feature_group("runtime")
 
-    accuracy: Quantity [0..1];
+    |
+    | Accuracy of the measurement, expressed as a half-range, either with
+    | measurement units, or with '%' pseudo-units
+    | Example: 0.1V means ±0.1V; 3% means ±3%
+    |
+    accuracy: Quantity?;
 
-    value_status: Comparison_operator [0..1];
+    value_status: Comparison_operator?;
     
-    interpretation: Coded_text <<splash-lang.QuantitativeInterpretation>> [0..1];
+    interpretation: Coded_text <<splash-lang.QuantitativeInterpretation>>;
 
-    interpretation_guide: Text [0..1];
+    interpretation_guide: Text?;
 
 end

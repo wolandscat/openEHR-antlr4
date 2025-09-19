@@ -9,6 +9,10 @@
 
 import org.splash-lang.foundation.representation.base_types
 
+|
+| Pattern-based expression of event occurrences in the past or future;
+| may include bounding period and / or total event count
+|
 class Occurrence_pattern
     is_a Any
 
@@ -16,11 +20,15 @@ feature_group("access")
 
     occurrence_times: Occurrence_times_specifier [*];
 
-    total_event_count: Integer [0..1];
+    total_event_count: Integer?;
 
-    bounding_period: Interval <Date> [0..1];
+    bounding_period: Interval <Date>?;
 
-    pattern_coded: Terminology_term [0..1];
+    |
+    | Additional coded term used for common patterns; must match the
+    | semantics of the structured representation in `occurrence_times`
+    |
+    pattern_coded: Terminology_term?;
 
 end
 

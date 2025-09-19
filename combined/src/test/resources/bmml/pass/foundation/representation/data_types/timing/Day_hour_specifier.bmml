@@ -37,13 +37,13 @@ feature_group("access")
     |
     | The value 'every day' can be represented by a full week or month list, or for convenience, the value `"daily"`.
     |
-    days_spec: String [1];
+    days_spec: String;
 
     |
     | a string pattern like "1/3" or "2/4" whose numerator is the position of the occurrences base period,
     | and whose denominator is the number of base periods in a full cycle
     |
-    cycle_pattern: String [1];
+    cycle_pattern: String;
 
     times_of_day: Hour_specifier [*, list];
 end

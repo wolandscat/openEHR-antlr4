@@ -15,9 +15,9 @@ class Proportion
 
 feature_group("access")
 
-    numerator: Quantity [1];
+    numerator: Quantity;
 
-    denomiator: Quantity [1];
+    denomiator: Quantity;
 
 end
 

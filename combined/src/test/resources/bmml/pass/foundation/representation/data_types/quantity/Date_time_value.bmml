@@ -15,7 +15,7 @@ class Date_time_value
 
 feature_group("access")
 
-    value: Date_time [1];
+    value: Date_time;
 
 end
 

@@ -15,7 +15,7 @@ class Coded_text
 
 feature_group ("access")
 
-    term: Terminology_term [1];
+    term: Terminology_term;
 
 end
 

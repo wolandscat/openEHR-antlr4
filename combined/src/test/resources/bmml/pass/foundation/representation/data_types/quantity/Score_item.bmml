@@ -21,8 +21,8 @@ class Score_item
 
 feature_group("access")
 
-    value: Integer [1];
+    value: Integer;
 
-    concept: Terminology_term [0..1];
+    concept: Terminology_term?;
 
 end

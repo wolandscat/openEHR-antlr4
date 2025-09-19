@@ -15,7 +15,7 @@ class Uri_ref
 
 feature_group("access")
 
-    value: Uri [1];
+    value: Uri;
 
 end
 

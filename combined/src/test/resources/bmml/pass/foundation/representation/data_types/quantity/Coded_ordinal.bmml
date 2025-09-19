@@ -19,8 +19,8 @@ class Coded_ordinal
 
 feature_group("access")
 
-    rank: Integer [1];
+    rank: Integer;
 
-    concept: Terminology_term [1];
+    concept: Terminology_term;
 
 end

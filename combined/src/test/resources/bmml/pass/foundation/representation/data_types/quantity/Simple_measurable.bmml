@@ -15,7 +15,7 @@ abstract class Simple_measurable
 
 feature_group("access")
 
-    magnitude: Numeric [1];
+    magnitude: Numeric;
 
 end
 

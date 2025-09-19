@@ -15,9 +15,9 @@ class Money
 
 feature_group("access")
 
-    magnitude: Decimal [1];
+    magnitude: Decimal;
 
-    currency: Terminology_code [1];
+    currency: Terminology_code;
 
 end
 

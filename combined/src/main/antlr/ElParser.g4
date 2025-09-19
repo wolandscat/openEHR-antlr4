@@ -15,7 +15,7 @@ import Cadl2Parser;
 
 // ========================== EL Statements ==========================
 
-statementBlock: statement+ EOF ;
+statementBlock: statement+ EOF? ;
 
 statement: declaration | assignment | assertion ;
 
@@ -26,11 +26,11 @@ declaration:
 
 variableDeclaration: elInstantiableRef ':' typeId ( SYM_ASSIGNMENT elExpression )? ;
 
-constantDeclaration: elConstantId ':' typeId ( SYM_EQ elExpression )? ;
+constantDeclaration: UC_ID ':' typeId SYM_EQ elExpression ;
 
 assignment: elValueGenerator SYM_ASSIGNMENT elExpression ;
 
-assertion: ( ( LC_ID | UC_ID ) ':' )? SYM_ASSERT elBooleanExpr ;
+assertion: UC_ID ':' SYM_ASSERT elBooleanExpr ;
 
 // ========================== EL Expressions ==========================
 

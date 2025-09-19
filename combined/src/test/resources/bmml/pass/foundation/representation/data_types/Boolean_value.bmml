@@ -15,11 +15,11 @@ class Boolean_value
 
 feature_group ("access")
 
-    value: Boolean [1];
+    value: Boolean;
 
-    true_term: Terminology_term [1];
+    true_term: Terminology_term;
 
-    false_term: Terminology_term [1];
+    false_term: Terminology_term;
 
 end
 

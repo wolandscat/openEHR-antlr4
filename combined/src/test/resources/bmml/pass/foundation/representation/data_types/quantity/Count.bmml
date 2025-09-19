@@ -15,6 +15,6 @@ class Count
 
 feature_group("access")
 
-    magnitude: Integer [1];
+    magnitude: Integer;
 
 end

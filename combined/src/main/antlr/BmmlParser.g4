@@ -8,33 +8,26 @@
 
 parser grammar BmmlParser;
 options { tokenVocab=BmmlLexer; }
-// import ElParser;
+import ElParser;
 
 
 // ========================== BMML Classes ==========================
 
-bmmClass: SYM_ABSTRACT? SYM_CLASS (SYM_INHERIT typeId ( ',' typeId )* )? '{'  '}' ; // bmmFeature+ bmmInvariant* '}' ;
+bmmClass: SYM_ABSTRACT? SYM_CLASS (SYM_INHERIT typeId ( ',' typeId )* )? bmmFeature+ bmmInvariant* ;
 
 
 // -------------------- constants, singletons, properties -------------------
 
-bmmFeature: bmmInstantiableFeature | bmmRoutine ;
+bmmFeature: ( bmmInstantiableFeature | bmmRoutine ) ';' ;
 
 bmmInstantiableFeature: bmmStatic | bmmProperty ;
 
-bmmStatic: SYM_CONSTANT ( bmmConstant | bmmSingleton ) ;
+bmmStatic: constantDeclaration | bmmSingleton ;
 
-bmmConstant: bmmConstantId ':' typeId ( SYM_EQ elExpression )? ;
+bmmSingleton: UC_ID ':' typeSpecifier SYM_EQ statementBlock ;
 
-bmmConstantId: UC_ID ;
+bmmProperty: SYM_PROPERTY typeSpecifier ;
 
-bmmSingleton: UC_ID;
-
-bmmProperty: SYM_PROPERTY ( bmmUnitaryProperty | bmmContainerProperty | bmmIndexedContainerProperty ) ;
-
-bmmUnitaryProperty: UC_ID;
-bmmContainerProperty: UC_ID;
-bmmIndexedContainerProperty: UC_ID;
 
 // ------------------------------ routines -----------------------------------
 
@@ -42,13 +35,18 @@ bmmRoutine: bmmProcedure | bmmFunction ;
 
 bmmProcedure: ;
 
-bmmFunction: ;
+bmmFunction: typeId ;
 
 // ------------------------------ invariants -----------------------------------
 
 bmmInvariant: ;
 
 // ------------------------------ types -----------------------------------
+
+typeSpecifier: typeId bmmMultiplicity? bmmNullableMarker? ;
+
+bmmMultiplicity: '[' (( '0' | '1' ) '..' )? '*' ( multiplicityMod multiplicityMod? )? ']' ;
+bmmNullableMarker: '?' ;
 
 typeId: UC_ID ( '<' typeId ( ',' typeId )* '>' )? ;
 

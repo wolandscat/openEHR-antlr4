@@ -15,9 +15,9 @@ abstract class Measurable
 
 feature_group("access")
 
-    precision: Integer [1];
+    precision: Integer;
 
-    effective_value: Decimal [1]
+    effective_value: Decimal
         Result := ?
         ;
 

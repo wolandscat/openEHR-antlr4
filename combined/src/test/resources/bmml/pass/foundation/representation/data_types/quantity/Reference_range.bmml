@@ -15,10 +15,10 @@ class Reference_range <V:Measurable>
 
 feature_group("access")
 
-    type: Terminology_term <<splash-lang.ReferenceRangeMeaning>> [1];
+    type: Terminology_term <<splash-lang.ReferenceRangeMeaning>>;
 
-    range: Range <V> [1];
+    range: Range <V>;
 
-    phenotype: Text [0..1];
+    phenotype: Text?;
 
 end

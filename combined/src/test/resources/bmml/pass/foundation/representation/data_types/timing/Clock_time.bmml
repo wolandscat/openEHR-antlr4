@@ -15,7 +15,7 @@ class Clock_time
 
 feature_group("access")
 
-    time: Time [1];
+    time: Time;
 
 end
 

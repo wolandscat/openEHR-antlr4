@@ -36,10 +36,10 @@ SYM_COLON : ':' ;
 SYM_INTERROGATION: '?' ;
 SYM_NE : '/=' | '!=' | '≠' ;
 SYM_EQ : '=' ;
-SYM_GT : '>' ;
-SYM_LT : '<' ;
-SYM_LE : '<=' | '≤' ;
-SYM_GE : '>=' | '≥' ;
+//SYM_GT : '>' ;
+//SYM_LT : '<' ;
+//SYM_LE : '<=' | '≤' ;
+//SYM_GE : '>=' | '≥' ;
 
 SYM_PLUS    : '+' ;
 SYM_MINUS   : '-' ;

@@ -15,9 +15,9 @@ class Period_specifier
 
 feature_group("access")
 
-    period: Duration [1];
+    period: Duration;
 
-    period_upper: Duration [0..1];
+    period_upper: Duration?;
 
 end
 

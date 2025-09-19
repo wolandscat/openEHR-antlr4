@@ -17,15 +17,19 @@ feature_group("access")
     |
     | History of specific occurrences
     |
-    history: Occurrence [*, list];
+    history: Occurrence [*, list]?;
 
     |
     | Pattern representation of occurrences
     |
-    pattern: Occurrence_pattern [0..1];
+    pattern: Occurrence_pattern?;
 
-    event_duration: Duration [0..1];
+    event_duration: Duration?;
     
-    event_duration_upper: Duration [0..1]
+    event_duration_upper: Duration?
+
+invariant
+
+    Value_validity = ∃history and !history.empty or ∃pattern;
 
 end

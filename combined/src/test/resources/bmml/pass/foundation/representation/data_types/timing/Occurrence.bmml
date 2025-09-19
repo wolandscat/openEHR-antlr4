@@ -9,16 +9,20 @@
 
 import org.splash-lang.foundation.representation.base_types
 
+|
+| Single occurrence of an event expressed as date, optional time(s) of day,
+| and possibly an upper date, to indicate duration
+|
 class Occurrence
     is_a Any
 
 feature_group("access")
 
-    date: Date [1];
+    date: Date;
 
-    date_upper: Date [0..1];
+    date_upper: Date?;
 
-    times_of_day: Hour_specifier [*];
+    times_of_day: Hour_specifier [*]?;
 
 end
 

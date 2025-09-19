@@ -15,7 +15,7 @@ abstract class Temporal_value
 
 feature_group("access")
 
-    value: Temporal [1];
+    value: Temporal;
 
 end
 

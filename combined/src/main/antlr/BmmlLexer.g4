@@ -11,7 +11,7 @@
 //
 
 lexer grammar BmmlLexer;
-import BaseLexer, GeneralLexer;
+import ElLexer, BaseLexer, GeneralLexer;
 
 channels {
     COMMENT
@@ -30,8 +30,11 @@ SYM_CONSTANT  : 'constant' ;
 SYM_PROPERTY  : 'property' ;
 
 // --------- symbols ----------
-SYM_ASSIGNMENT: ':=' ;
-SYM_COLON : ':' ;
-SYM_GT : '>' ;
-SYM_LT : '<' ;
-SYM_COMMA: ',' ;
+SYM_ZERO: '0' ;
+SYM_ONE: '1' ;
+
+//SYM_ASSIGNMENT: ':=' ;
+//SYM_COLON : ':' ;
+//SYM_GT : '>' ;
+//SYM_LT : '<' ;
+//SYM_COMMA: ',' ;

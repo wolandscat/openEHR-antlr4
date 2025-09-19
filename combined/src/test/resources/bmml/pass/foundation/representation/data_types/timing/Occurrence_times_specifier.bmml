@@ -14,8 +14,8 @@ abstract class Occurrence_times_specifier
 
 feature_group("access")
 
-    event_count: Integer [0..1];
+    event_count: Integer;
 
-    event_count_upper: Integer [0..1];
+    event_count_upper: Integer?;
 					  
 end
