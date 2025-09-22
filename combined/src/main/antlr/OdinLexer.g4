@@ -8,7 +8,7 @@
 //
 
 lexer grammar OdinLexer;
-import OdinValuesLexer, BaseLexer, GeneralLexer;
+import OdinValuesLexer, GeneralLexer;
 
 channels {
     COMMENT

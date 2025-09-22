@@ -8,7 +8,7 @@
 //
 
 lexer grammar OdinValuesLexer;
-import OpenehrPatterns, BaseLexer;
+import OpenehrPatterns;
 
 // ------ get rid of whitespace inside lists and intervals ------
 WS : [ \t\r]+     -> channel(HIDDEN) ;
