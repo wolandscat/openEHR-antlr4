@@ -1,5 +1,5 @@
-$dateOfBirth: Date := 2014-09-07
+$dateOfBirth: Date := 2014-09-07;
 
-$visitRequired:Boolean := $lastEpisode > $lastVisit
+$visitRequired:Boolean := $lastEpisode > $lastVisit;
 
-$age:Duration := currentDate() - $dateOfBirth
+$age:Duration := currentDate() - $dateOfBirth;

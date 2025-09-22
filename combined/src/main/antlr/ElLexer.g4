@@ -16,7 +16,7 @@ channels {
 
 // ------------------ lines and comments ------------------
 CMT_LINE : '--' ~[\r\n]* -> channel(COMMENT) ;
-TABLE_CMT_LINE : '===' '='* EOL -> channel(COMMENT) ;
+BLOCK_DELIM : '====' '='* EOL ;
 BLOCK_CMT_LINE_EMPTY : WS* '|' WS* EOL -> channel(COMMENT) ;
 BLOCK_CMT_LINE : WS+ '|' [ \t] ~[\r\n]+ -> channel(COMMENT) ;
 
@@ -44,12 +44,14 @@ SYM_EQ : '=' ;
 //SYM_LE : '<=' | '≤' ;
 //SYM_GE : '>=' | '≥' ;
 
-SYM_PLUS    : '+' ;
-SYM_MINUS   : '-' ;
-SYM_SLASH   : '/' ;
-SYM_PERCENT : '%' ;
-SYM_CARET   : '^' ;
+//SYM_PLUS    : '+' ;
+//SYM_MINUS   : '-' ;
+//SYM_SLASH   : '/' ;
+//SYM_PERCENT : '%' ;
+//SYM_CARET   : '^' ;
 SYM_DOT     : '.' ;
+
+SYM_BROKEN_BAR: '¦' ;
 
 SYM_DOUBLE_MINUS: '--' ;
 SYM_DOUBLE_PLUS: '++' ;

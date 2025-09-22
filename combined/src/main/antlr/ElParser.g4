@@ -17,7 +17,7 @@ import Cadl2Parser;
 
 statementBlock: statement+ EOF? ;
 
-statement: declaration | assignment | assertion ;
+statement: ( declaration | assignment | assertion ) ';' ;
 
 declaration:
       variableDecl
@@ -30,7 +30,7 @@ constantDecl: UC_ID ':' typeId SYM_EQ elExpression ;
 
 assignment: elValueGenerator SYM_ASSIGNMENT elExpression ;
 
-assertion: UC_ID ':' SYM_ASSERT elBooleanExpr ;
+assertion: LC_ID ':' SYM_ASSERT elBooleanExpr ;
 
 // ========================== EL Expressions ==========================
 
@@ -83,9 +83,9 @@ elBooleanLeaf:
 //
 //  Universal and existential quantifier
 //
-elForAllExpr: SYM_FOR_ALL elLocalVariableId ':' elValueGenerator '|' elBooleanExpr ;
+elForAllExpr: SYM_FOR_ALL elLocalVariableId ':' elValueGenerator '¦' elBooleanExpr ;
 
-elThereExistsExpr: SYM_THERE_EXISTS elLocalVariableId ':' elValueGenerator '|' elBooleanExpr ;
+elThereExistsExpr: SYM_THERE_EXISTS elLocalVariableId ':' elValueGenerator '¦' elBooleanExpr ;
 
 // Constraint expressions
 // This provides a way of using one operator (matches) to compare a
@@ -190,6 +190,9 @@ elValueGenerator:
     | typeRef
     ;
 
+//
+// An unscoped reference of some kind
+//
 elBareRef:
       elBoundVariableId
     | elStaticRef
@@ -288,9 +291,8 @@ dlCaseTable:
 //   ---------------------------------------------------------
 //   *:                            #none
 //   =========================================================
-//   ;
 //
-dlConditionTable: SYM_CHOICE SYM_IN ( dlConditionBranch ',' )+ ( dlConditionBranch | dlConditionDefaultBranch ) ';' ;
+dlConditionTable: SYM_CHOICE SYM_IN BLOCK_DELIM ( dlConditionBranch ',' )+ ( dlConditionBranch | dlConditionDefaultBranch ) BLOCK_DELIM ;
 
 dlConditionBranch: elBooleanExpr ':' elExpression ;
 
@@ -319,7 +321,7 @@ dlBinaryChoice:  elBooleanExpr '?' elSimpleTerminal ':' elSimpleTerminal ;
 //        ============================
 //     ;
 //
-dlGeneralCaseTable: SYM_CASE elExpression SYM_IN ( dlGeneralCaseBranch ',' )+ ( dlGeneralCaseBranch | dlGeneralCaseDefaultBranch ) ';' ;
+dlGeneralCaseTable: SYM_CASE elExpression SYM_IN BLOCK_DELIM ( dlGeneralCaseBranch ',' )+ ( dlGeneralCaseBranch | dlGeneralCaseDefaultBranch ) BLOCK_DELIM ;
 
 dlGeneralCaseBranch: primitiveObject ':' elExpression ;
 
@@ -335,7 +337,7 @@ dlGeneralCaseDefaultBranch: SYM_ASTERISK ':' elExpression ;
 //   =================
 //   ;
 //
-dlSimpleCaseTable: SYM_CASE elSimpleTerminal SYM_IN ( dlSimpleCaseBranch ',' )+ ( dlSimpleCaseBranch | dlSimpleCaseDefaultBranch ) ';' ;
+dlSimpleCaseTable: SYM_CASE elSimpleTerminal SYM_IN BLOCK_DELIM ( dlSimpleCaseBranch ',' )+ ( dlSimpleCaseBranch | dlSimpleCaseDefaultBranch ) BLOCK_DELIM ;
 
 dlSimpleCaseBranch: primitiveObject ':' elSimpleTerminal ;
 

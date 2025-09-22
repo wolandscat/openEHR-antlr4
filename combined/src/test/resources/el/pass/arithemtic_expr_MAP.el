@@ -1,1 +1,1 @@
-map := systolic + 0.33 * (systolic - diastolic)
+map := systolic + 0.33 * (systolic - diastolic) ;

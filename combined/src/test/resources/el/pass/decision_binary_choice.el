@@ -1,1 +1,1 @@
-val := basic.gender = #male ? 1 : 0
+val := basic.gender = #male ? 1 : 0;

@@ -1,1 +1,1 @@
-val := weight ∈ {|>160|}
+val := weight ∈ {|>160|};

@@ -1,3 +1,3 @@
-risk := calc_risk (has_hypertension ? 1 : 0)
+risk := calc_risk (has_hypertension ? 1 : 0);
 
-score := Result.add (basic.gender = #male)
+score := Result.add (basic.gender = #male);
