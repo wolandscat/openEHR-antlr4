@@ -4,9 +4,9 @@ package org.openehr.cadlReader;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.openehr.combinedparser.Cadl14Parser;
-import org.openehr.combinedparser.Cadl14ParserListener;
-import org.openehr.combinedparser.Cadl2Parser;
+import org.openehr.antlr4.Cadl14Parser;
+import org.openehr.antlr4.Cadl14ParserListener;
+import org.openehr.antlr4.Cadl2Parser;
 import org.openehr.common.SyntaxUtils;
 import org.openehr.odinReader.OdinReader;
 

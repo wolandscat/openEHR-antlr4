@@ -3,7 +3,7 @@ package org.openehr.aqlReader;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import org.openehr.combinedparser.*;
+import org.openehr.antlr4.*;
 import org.openehr.common.SyntaxReader;
 
 public class AqlReader extends SyntaxReader<AqlLexer, AqlParser> {

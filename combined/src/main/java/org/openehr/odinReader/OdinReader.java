@@ -2,7 +2,7 @@ package org.openehr.odinReader;
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import org.openehr.combinedparser.*;
+import org.openehr.antlr4.*;
 import org.openehr.common.SyntaxReader;
 
 public class OdinReader extends SyntaxReader<OdinLexer, OdinParser> {

@@ -4,7 +4,7 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.openehr.antlr.IANTLRParserErrors;
-import org.openehr.combinedparser.*;
+import org.openehr.antlr4.*;
 import org.openehr.common.SyntaxReader;
 
 public class Cadl2Reader extends SyntaxReader<Cadl2Lexer, Cadl2Parser> {

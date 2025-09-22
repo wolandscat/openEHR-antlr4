@@ -1,10 +1,10 @@
 description = "Combined grammars for parsing ADL, CADL, EL, ODIN and BASE lexers"
 
 generateGrammarSource { //antlr4
-    outputDirectory = new File("${project.buildDir}/generated-src/antlr/main/org/openehr/combinedparser".toString())
+    outputDirectory = new File("${project.buildDir}/generated-src/antlr/main/org/openehr/antlr4".toString())
     arguments = [
-            '-package', 'org.openehr.combinedparser',
-            '-lib', 'src/main/gen'
+            '-package', 'org.openehr.antlr4' //,
+            //'-lib', 'src/main/gen'
     ] + arguments
 }
 

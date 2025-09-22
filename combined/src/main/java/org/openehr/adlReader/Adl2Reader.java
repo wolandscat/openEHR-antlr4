@@ -3,7 +3,7 @@ package org.openehr.adlReader;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.openehr.antlr.IANTLRParserErrors;
-import org.openehr.combinedparser.*;
+import org.openehr.antlr4.*;
 import org.openehr.common.SyntaxReader;
 
 public class Adl2Reader extends SyntaxReader<Adl2Lexer, Adl2Parser> {

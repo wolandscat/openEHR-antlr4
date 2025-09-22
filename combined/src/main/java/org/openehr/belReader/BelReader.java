@@ -3,9 +3,9 @@ package org.openehr.belReader;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import org.openehr.combinedparser.BelLexer;
-import org.openehr.combinedparser.BelParser;
-import org.openehr.combinedparser.BelParserBaseListener;
+import org.openehr.antlr4.BelLexer;
+import org.openehr.antlr4.BelParser;
+import org.openehr.antlr4.BelParserBaseListener;
 import org.openehr.common.SyntaxReader;
 
 public class BelReader extends SyntaxReader<BelLexer, BelParser> {

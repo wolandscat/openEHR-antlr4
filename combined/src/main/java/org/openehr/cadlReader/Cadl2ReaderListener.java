@@ -6,8 +6,8 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import org.openehr.adlReader.Adl2ReaderDefinitions;
 import org.openehr.adlReader.Adl2ReaderErrorCollector;
-import org.openehr.combinedparser.Cadl2Parser;
-import org.openehr.combinedparser.Cadl2ParserListener;
+import org.openehr.antlr4.Cadl2Parser;
+import org.openehr.antlr4.Cadl2ParserListener;
 import org.openehr.common.SyntaxUtils;
 import org.openehr.odinReader.OdinReader;
 

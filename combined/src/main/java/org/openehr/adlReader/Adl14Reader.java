@@ -4,8 +4,8 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.openehr.antlr.IANTLRParserErrors;
-import org.openehr.combinedparser.Adl14Lexer;
-import org.openehr.combinedparser.Adl14Parser;
+import org.openehr.antlr4.Adl14Lexer;
+import org.openehr.antlr4.Adl14Parser;
 import org.openehr.common.SyntaxReader;
 
 public class Adl14Reader extends SyntaxReader<Adl14Lexer, Adl14Parser> {

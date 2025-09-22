@@ -3,7 +3,9 @@ repositories {
 }
 
 wrapper {
-    gradleVersion = '5.6.4'
+    // gradleVersion = '5.6.4'
+    gradleVersion = '9.1.0'
+
 }
 
 allprojects {
@@ -20,8 +22,8 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'antlr'
 
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
+    sourceCompatibility = '1.11'
+    targetCompatibility = '1.11'
 
     compileJava.options.encoding = "UTF-8"
     compileTestJava.options.encoding = "UTF-8"
@@ -36,6 +38,7 @@ subprojects {
 
     generateGrammarSource { //antlr4
         arguments = ['-encoding', 'utf-8'] + arguments
+        arguments = ['-package', 'org.openehr.antlr4'] + arguments
     }
     classes {
         dependsOn generateGrammarSource

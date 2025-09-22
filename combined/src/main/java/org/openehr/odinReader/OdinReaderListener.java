@@ -4,8 +4,8 @@ package org.openehr.odinReader;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.openehr.combinedparser.OdinParser;
-import org.openehr.combinedparser.OdinParserListener;
+import org.openehr.antlr4.OdinParser;
+import org.openehr.antlr4.OdinParserListener;
 
 /**
  * This class provides an empty implementation of {@link OdinParserListener},
