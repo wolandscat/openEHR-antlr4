@@ -18,28 +18,27 @@ channels {
 }
 
 // ------------------ lines and comments ------------------
-CMT_LINE : '--' .*? EOL -> channel(COMMENT) ;
-EOL      : '\r'? '\n'   -> skip ;
-WS       : [ \t\r]+     -> skip ;
+//CMT_LINE : '--' .*? EOL -> channel(COMMENT) ;
+//EOL      : '\r'? '\n'   -> skip ;
+//WS       : [ \t\r]+     -> skip ;
 
 // ----------------------- keywords -----------------------
 SYM_CLASS     : 'class' ;
+SYM_IMPORT    : 'import' ;
+
 SYM_ABSTRACT  : 'abstract' ;
 SYM_INHERIT   : 'is_a' ;
-SYM_CONSTANT  : 'constant' ;
-SYM_PROPERTY  : 'property' ;
+SYM_CONSTANT  : 'const' ;
+SYM_PROPERTY  : 'prop' ;
 SYM_FUNCTION  : 'func' ;
 SYM_PROCEDURE : 'proc' ;
 SYM_FEATURE_GROUP : 'feature_group' ;
-SYM_INVARIANT: 'invariant';
+SYM_INVARIANT : 'invariant';
+SYM_END: 'end' ;
+
 
 // --------- symbols ----------
-SYM_ZERO: '0' ;
-SYM_ONE: '1' ;
 SYM_NULLABLE_TYPE_DECL: ':?' ;
 
-//SYM_ASSIGNMENT: ':=' ;
-//SYM_COLON : ':' ;
-//SYM_GT : '>' ;
-//SYM_LT : '<' ;
-//SYM_COMMA: ',' ;
+// ----------------------- identifiers -----------------------
+DOTTED_ID: NAME_ID ( '.' NAME_ID )+ ;

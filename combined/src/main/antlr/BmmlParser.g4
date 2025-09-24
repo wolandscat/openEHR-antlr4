@@ -13,13 +13,19 @@ import ElParser;
 
 // ========================== BMML Classes ==========================
 
-bmmClass: SYM_ABSTRACT? SYM_CLASS typeDecl bmmClassInheritDecl? bmmFeatureGroupDecl+ bmmInvariantDecl? ;
+bmmClassDef: bmmClassImport+ bmmClassDecl ;
+
+bmmClassImport: SYM_IMPORT bmmPackageId ';' ;
+
+bmmPackageId: DOTTED_ID ;
+
+bmmClassDecl: SYM_ABSTRACT? SYM_CLASS typeDecl bmmClassInheritDecl? bmmFeatureGroupDecl* bmmInvariantDecl? SYM_END ;
 
 bmmClassInheritDecl: SYM_INHERIT typeId ( ',' typeId )* ;
 
 // -------------------- constants, singletons, properties -------------------
 
-bmmFeatureGroupDecl: SYM_FEATURE_GROUP '(' LC_ID ')' bmmFeatureDecl+ ;
+bmmFeatureGroupDecl: SYM_FEATURE_GROUP '(' STRING ')' bmmFeatureDecl+ ;
 
 bmmFeatureDecl: ( bmmInstantiableFeatureDecl | bmmRoutineDecl ) ';' ;
 
@@ -50,9 +56,13 @@ bmmInvariantDecl: SYM_INVARIANT assertion+ ;
 
 // ------------------------------ types -----------------------------------
 
-typeSpecifier: typeId bmmMultiplicity? ;
+typeSpecifier: typeId bmmMultiplicity? bmmValueConstraint? ;
 
-bmmMultiplicity: '[' (( '0' | '1' ) '..' )? '*' ( multiplicityMod multiplicityMod? )? ']' ;
+// need to check the integer = 0 or 1 only
+bmmMultiplicity: '[' ( bmmMultiplicityLower '..' )? '*' ( multiplicityMod multiplicityMod? )? ']' ;
+bmmMultiplicityLower: INTEGER ;
+bmmValueConstraint: SYM_LEFT_GUILLEMET bmmValueConstraintId SYM_RIGHT_GUILLEMET ;
+bmmValueConstraintId: NAME_ID ;
 
 typeDecl: UC_ID ( '<' typeConstrained ( ',' typeConstrained )* '>' )? ;
 typeConstrained: UC_ID ( ':' typeId )? ;

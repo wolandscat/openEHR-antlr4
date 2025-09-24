@@ -8,7 +8,7 @@
 //
 
 lexer grammar ElLexer;
-import AdlPathLexer, Cadl2Lexer, GeneralLexer;
+import Cadl2Lexer, GeneralLexer;
 
 channels {
     COMMENT
@@ -18,7 +18,7 @@ channels {
 CMT_LINE : '--' ~[\r\n]* -> channel(COMMENT) ;
 BLOCK_DELIM : '====' '='* EOL ;
 BLOCK_CMT_LINE_EMPTY : WS* '|' WS* EOL -> channel(COMMENT) ;
-BLOCK_CMT_LINE : WS+ '|' [ \t] ~[\r\n]+ -> channel(COMMENT) ;
+BLOCK_CMT_LINE : WS* '|' [ \t] ~[\r\n]+ -> channel(COMMENT) ;
 
 EOL      : '\r'? '\n'   -> channel(HIDDEN) ;
 WS       : [ \t\r]+     -> channel(HIDDEN) ;
@@ -39,16 +39,8 @@ SYM_COLON : ':' ;
 SYM_INTERROGATION: '?' ;
 SYM_NE : '/=' | '!=' | '≠' ;
 SYM_EQ : '=' ;
-//SYM_GT : '>' ;
-//SYM_LT : '<' ;
-//SYM_LE : '<=' | '≤' ;
-//SYM_GE : '>=' | '≥' ;
-
-//SYM_PLUS    : '+' ;
-//SYM_MINUS   : '-' ;
-//SYM_SLASH   : '/' ;
-//SYM_PERCENT : '%' ;
-//SYM_CARET   : '^' ;
+SYM_LEFT_GUILLEMET: '«' ;
+SYM_RIGHT_GUILLEMET: '»' ;
 SYM_DOT     : '.' ;
 
 SYM_BROKEN_BAR: '¦' ;

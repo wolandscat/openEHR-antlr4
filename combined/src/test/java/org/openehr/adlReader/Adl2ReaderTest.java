@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openehr.aqlReader.AqlReader;
 import org.openehr.belReader.BelReader;
+import org.openehr.bmmlReader.BmmlReader;
 import org.openehr.cadlReader.Cadl14Reader;
 import org.openehr.cadlReader.Cadl2Reader;
 import org.openehr.common.SyntaxReader;
@@ -49,6 +50,15 @@ public class Adl2ReaderTest {
     @Test
     public void testAllEl() throws IOException {
         runTest ("el", "el", new ElReader(false, false));
+    }
+
+    /**
+     * Test BMML grammar
+     * @throws IOException
+     */
+    @Test
+    public void testAllBmml() throws IOException {
+        runTest ("bmml", "bmml", new BmmlReader(false, false));
     }
 
     /**

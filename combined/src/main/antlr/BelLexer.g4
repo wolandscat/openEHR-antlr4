@@ -9,7 +9,7 @@
 //
 
 lexer grammar BelLexer;
-import AdlPathLexer, Cadl2PrimitiveValuesLexer, GeneralLexer;
+import Cadl2PrimitiveValuesLexer, GeneralLexer;
 
 channels {
     COMMENT
