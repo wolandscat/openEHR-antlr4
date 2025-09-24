@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 
 class Plain_text 

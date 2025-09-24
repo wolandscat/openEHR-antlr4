@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 
 class Quantity 
@@ -15,8 +15,8 @@ class Quantity
 
 feature_group("access")
 
-    magnitude: Decimal;
+    prop magnitude : Decimal;
 
-    units: Terminology_term;
+    prop units : Terminology_term;
 
 end

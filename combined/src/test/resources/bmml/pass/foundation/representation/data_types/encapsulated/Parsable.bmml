@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 
 class Parsable
@@ -15,13 +15,13 @@ class Parsable
 
 feature_group("access")
 
-    text:? String;
+    prop text :? String;
 
-    schema:? String;
+    prop schema :? String;
 
-    formalism: String;
+    prop formalism : String;
 
-    encoding:? Terminology_code <<iana_character-sets>>;
+    prop encoding :? Terminology_code <<iana_character-sets>>;
 					
 end
 

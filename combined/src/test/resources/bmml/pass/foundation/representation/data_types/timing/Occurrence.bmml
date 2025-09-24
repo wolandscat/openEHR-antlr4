@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 |
 | Single occurrence of an event expressed as date, optional time(s) of day,
@@ -18,11 +18,11 @@ class Occurrence
 
 feature_group("access")
 
-    date: Date;
+    prop date : Date;
 
-    date_upper:? Date;
+    prop date_upper :? Date;
 
-    times_of_day:? Hour_specifier [*];
+    prop times_of_day :? Hour_specifier [*];
 
 end
 

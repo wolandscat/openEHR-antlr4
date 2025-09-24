@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 
 class Boolean_value 
@@ -15,11 +15,11 @@ class Boolean_value
 
 feature_group ("access")
 
-    value: Boolean;
+    prop value : Boolean;
 
-    true_term: Terminology_term;
+    prop true_term : Terminology_term;
 
-    false_term: Terminology_term;
+    prop false_term : Terminology_term;
 
 end
 

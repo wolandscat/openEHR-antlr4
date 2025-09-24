@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 
 class Measured <V: Measurable>
@@ -15,9 +15,9 @@ class Measured <V: Measurable>
 
 feature_group("access")
 
-    value: V;
+    prop value : V;
 
-    reference_ranges:? Reference_range<V> [*, list];
+    prop reference_ranges :? Reference_range<V> [*; ordered];
 
 feature_group("runtime")
 
@@ -26,12 +26,12 @@ feature_group("runtime")
     | measurement units, or with '%' pseudo-units
     | Example: 0.1V means ±0.1V; 3% means ±3%
     |
-    accuracy:? Quantity;
+    prop accuracy :? Quantity;
 
-    value_status:? Comparison_operator;
+    prop value_status :? Comparison_operator;
     
-    interpretation: Coded_text <<splash-lang.QuantitativeInterpretation>>;
+    prop interpretation : Coded_text «splash-lang.QuantitativeInterpretation»;
 
-    interpretation_guide:? Text;
+    prop interpretation_guide :? Text;
 
 end

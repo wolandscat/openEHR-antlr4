@@ -7,24 +7,24 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 abstract class Text 
     is_a Data_value 
 
 feature_group ("access")
 
-    text: String;
+    prop text : String;
 
 feature_group ("infrastructure")
 
-    language:? Terminology_code;
+    prop language :? Terminology_code «iso_639-1»;
 
-    encoding:? Terminology_code;
+    prop encoding :? Terminology_code  «iana_charset»;
 
 feature_group ("runtime")
 
-    formatting:? Text_format_types;
+    prop formatting :? Text_format_types;
 
 end
 

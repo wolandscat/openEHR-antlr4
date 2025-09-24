@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 
 class Rwe_id_ref 
@@ -15,13 +15,13 @@ class Rwe_id_ref
 
 feature_group ("access")
 
-    id: String;
+    prop id : String;
 
-    issuer:? String;
+    prop issuer :? String;
 
-    assigner:? String;
+    prop assigner :? String;
 
-    type:? String;
+    prop type :? String;
 
 end
 

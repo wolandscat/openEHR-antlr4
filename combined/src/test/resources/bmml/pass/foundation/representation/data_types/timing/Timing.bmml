@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 class Timing 
     is_a Data_value
@@ -17,16 +17,16 @@ feature_group("access")
     |
     | History of specific occurrences
     |
-    history:? Occurrence [*, list];
+    prop history :? Occurrence [*; ordered];
 
     |
     | Pattern representation of occurrences
     |
-    pattern:? Occurrence_pattern;
+    prop pattern :? Occurrence_pattern;
 
-    event_duration:? Duration;
+    prop event_duration :? Duration;
     
-    event_duration_upper: Duration?
+    prop event_duration_upper : Duration?
 
 invariant
 

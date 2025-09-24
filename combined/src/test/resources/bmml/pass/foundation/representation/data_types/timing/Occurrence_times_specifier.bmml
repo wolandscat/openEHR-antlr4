@@ -7,15 +7,15 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 abstract class Occurrence_times_specifier
     is_a Any
 
 feature_group("access")
 
-    event_count: Integer;
+    prop event_count : Integer;
 
-    event_count_upper:? Integer;
+    prop event_count_upper :? Integer;
 					  
 end

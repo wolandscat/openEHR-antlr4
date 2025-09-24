@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 
 class Customary_time
@@ -15,11 +15,11 @@ class Customary_time
 
 feature_group("access")
 
-    reference_event: Terminology_term <<splash-lang.TimingEvent>>;
+    prop reference_event : Terminology_term «splash-lang.TimingEvent»;
 
-    offset:? Duration;
+    prop offset :? Duration;
 
-    temporal_relation:? Temporal_relation;
+    prop temporal_relation :? Temporal_relation;
 
 end
 

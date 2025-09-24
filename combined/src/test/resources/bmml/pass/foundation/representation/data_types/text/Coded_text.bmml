@@ -7,7 +7,7 @@
 | 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-import org.splash-lang.foundation.representation.base_types
+import org.splash-lang.foundation.representation.base_types ;
 
 
 class Coded_text 
@@ -15,7 +15,7 @@ class Coded_text
 
 feature_group ("access")
 
-    term: Terminology_term;
+    prop term : Terminology_term;
 
 end
 
