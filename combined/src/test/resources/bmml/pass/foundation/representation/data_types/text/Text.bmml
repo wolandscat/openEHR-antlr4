@@ -18,9 +18,9 @@ feature_group ("access")
 
 feature_group ("infrastructure")
 
-    prop language :? Terminology_code «iso_639-1»;
+    prop language :? Terminology_code «iso.iso_639-1»;
 
-    prop encoding :? Terminology_code  «iana_charset»;
+    prop encoding :? Terminology_code  «iana.character-sets»;
 
 feature_group ("runtime")
 

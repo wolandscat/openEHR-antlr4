@@ -13,7 +13,7 @@ import org.splash-lang.foundation.representation.base_types ;
 enumeration Ratio_kind
     base_type Integer
 
-values
+feature_group ("values")
 
     rational_fraction (0);
 

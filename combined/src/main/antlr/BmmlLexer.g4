@@ -24,14 +24,20 @@ channels {
 
 // ----------------------- keywords -----------------------
 SYM_CLASS     : 'class' ;
+SYM_ENUMERATION     : 'enumeration' ;
+
 SYM_IMPORT    : 'import' ;
 
 SYM_ABSTRACT  : 'abstract' ;
 SYM_INHERIT   : 'is_a' ;
+SYM_BASE_TYPE : 'base_type' ;
+
 SYM_CONSTANT  : 'const' ;
 SYM_PROPERTY  : 'prop' ;
 SYM_FUNCTION  : 'func' ;
 SYM_PROCEDURE : 'proc' ;
+SYM_DEFERRED  : 'deferred' ;
+
 SYM_FEATURE_GROUP : 'feature_group' ;
 SYM_INVARIANT : 'invariant';
 SYM_END: 'end' ;
@@ -41,4 +47,4 @@ SYM_END: 'end' ;
 SYM_NULLABLE_TYPE_DECL: ':?' ;
 
 // ----------------------- identifiers -----------------------
-DOTTED_ID: NAME_ID ( '.' NAME_ID )+ ;
+NAMESPACED_ID: LABEL ( '.' LABEL )+ ;

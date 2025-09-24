@@ -9,7 +9,6 @@
 
 import org.splash-lang.foundation.representation.base_types ;
 
-
 class Parsable
     is_a Encapsulated
 
@@ -21,7 +20,7 @@ feature_group("access")
 
     prop formalism : String;
 
-    prop encoding :? Terminology_code <<iana_character-sets>>;
+    prop encoding :? Terminology_code «iana.character-sets»;
 					
 end
 

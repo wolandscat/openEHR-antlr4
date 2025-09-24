@@ -13,19 +13,37 @@ import ElParser;
 
 // ========================== BMML Classes ==========================
 
-bmmClassDef: bmmClassImport+ bmmClassDecl EOF ;
+bmmModuleDef: bmmModuleImport+ ( bmmClassDecl | bmmEnumDecl ) SYM_END EOF ;
 
-bmmClassImport: SYM_IMPORT bmmPackageId ';' ;
+bmmModuleImport: SYM_IMPORT bmmPackageId ';' ;
 
-bmmPackageId: DOTTED_ID ;
+bmmPackageId: NAMESPACED_ID ;
 
-bmmClassDecl: SYM_ABSTRACT? SYM_CLASS typeDecl bmmClassInheritDecl? bmmFeatureGroupDecl* bmmInvariantDecl? SYM_END ;
+bmmClassDecl: SYM_ABSTRACT? SYM_CLASS typeDecl bmmClassInheritDecl? bmmFeatureGroup* bmmInvariantDecl? ;
 
 bmmClassInheritDecl: SYM_INHERIT typeId ( ',' typeId )* ;
 
+bmmEnumDecl: SYM_ENUMERATION typeDecl bmmEnumBaseDecl bmmEnumFeatureGroup ;
+
+bmmEnumBaseDecl: SYM_BASE_TYPE typeId ;
+
+// -------------------- enumerations -----------------------
+
+bmmEnumFeatureGroup: bmmFeatureGroupDecl bmmEnumFeatureDecl+ ;
+
+bmmEnumFeatureDecl: ( bmmIntegerDecl | bmmStringEnumDecl ) ';' ;
+
+bmmIntegerDecl: bmmEnumId '(' INTEGER ')' ;
+
+bmmStringEnumDecl: bmmEnumId '(' STRING ')' ;
+
+bmmEnumId: LC_ID ;
+
 // -------------------- constants, singletons, properties -------------------
 
-bmmFeatureGroupDecl: SYM_FEATURE_GROUP '(' STRING ')' bmmFeatureDecl+ ;
+bmmFeatureGroup: bmmFeatureGroupDecl bmmFeatureDecl+ ;
+
+bmmFeatureGroupDecl: SYM_FEATURE_GROUP '(' STRING ')' ;
 
 bmmFeatureDecl: ( bmmInstantiableFeatureDecl | bmmRoutineDecl ) ';' ;
 
@@ -40,7 +58,7 @@ bmmPropertyDecl: SYM_PROPERTY LC_ID ( ':' | ':?' ) typeSpecifier ;
 
 // ------------------------------ routines -----------------------------------
 
-bmmRoutineDecl: bmmProcedureDecl | bmmFunctionDecl ;
+bmmRoutineDecl: SYM_ABSTRACT? ( bmmProcedureDecl | bmmFunctionDecl ) ;
 
 bmmProcedureDecl: SYM_PROCEDURE LC_ID bmmArgsDecl? ;
 
@@ -52,7 +70,7 @@ bmmArgDecl: UC_ID ':' typeSpecifier ;
 
 // ------------------------------ invariants -----------------------------------
 
-bmmInvariantDecl: SYM_INVARIANT assertion+ ;
+bmmInvariantDecl: SYM_INVARIANT ( assertion ';' ) + ;
 
 // ------------------------------ types -----------------------------------
 
@@ -62,7 +80,7 @@ typeSpecifier: typeId bmmMultiplicity? bmmValueConstraint? ;
 bmmMultiplicity: '[' ( bmmMultiplicityLower '..' )? '*' ( multiplicityMod multiplicityMod? )? ']' ;
 bmmMultiplicityLower: INTEGER ;
 bmmValueConstraint: SYM_LEFT_GUILLEMET bmmValueConstraintId SYM_RIGHT_GUILLEMET ;
-bmmValueConstraintId: NAME_ID ;
+bmmValueConstraintId: NAMESPACED_ID ;
 
 typeDecl: UC_ID ( '<' typeConstrained ( ',' typeConstrained )* '>' )? ;
 typeConstrained: UC_ID ( ':' typeId )? ;

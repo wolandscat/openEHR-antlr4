@@ -15,7 +15,7 @@ abstract class Encapsulated
 
 feature_group("access")
 
-    prop language :? Terminology_code «iso_639-1»;
+    prop language :? Terminology_code «iso.iso_639-1»;
 
     prop uri :? Uri;
 

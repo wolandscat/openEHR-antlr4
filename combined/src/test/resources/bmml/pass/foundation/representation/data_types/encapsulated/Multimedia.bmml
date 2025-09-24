@@ -19,7 +19,7 @@ feature_group("access")
 
     prop data : Byte [*; ordered];
 
-    prop media_type : Terminology_code «iana_media-types»;
+    prop media_type : Terminology_code «iana.media-types»;
 
     prop hash :? String;
 

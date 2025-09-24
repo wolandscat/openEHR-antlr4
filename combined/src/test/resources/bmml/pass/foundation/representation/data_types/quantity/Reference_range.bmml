@@ -15,7 +15,7 @@ class Reference_range <V:Measurable>
 
 feature_group("access")
 
-    prop type : Terminology_term <<splash-lang.ReferenceRangeMeaning>>;
+    prop type : Terminology_term «splash-lang.ReferenceRangeMeaning»;
 
     prop range : Range <V>;
 

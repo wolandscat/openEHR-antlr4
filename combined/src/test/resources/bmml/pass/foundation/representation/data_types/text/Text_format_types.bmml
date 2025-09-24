@@ -12,7 +12,7 @@ import org.splash-lang.foundation.representation.base_types ;
 enumeration Text_format_types
     base_type Integer
 
-values
+feature_group ("values")
 
     plain (0);
 

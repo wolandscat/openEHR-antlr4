@@ -9,11 +9,10 @@
 
 import org.splash-lang.foundation.representation.base_types ;
 
-
 enumeration Comparison_operator
     base_type String
 
-values
+feature_group ("values")
 
     eq ("=");
 

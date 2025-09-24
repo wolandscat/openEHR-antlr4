@@ -26,10 +26,10 @@ feature_group("access")
 
     prop event_duration :? Duration;
     
-    prop event_duration_upper : Duration?
+    prop event_duration_upper :? Duration;
 
 invariant
 
-    Value_validity = ∃history and !history.empty or ∃pattern;
+    value_validity: assert ∃history and !history.empty or ∃pattern;
 
 end
