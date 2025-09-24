@@ -22,13 +22,13 @@ public class BmmlReader extends SyntaxReader<BmmlLexer, BmmlParser> {
     }
 
     protected void doParse(int lineOffset) {
-        BmmlParser.StatementBlockContext stmtBlock = parser.statementBlock();
+        BmmlParser.BmmClassDefContext classDef = parser.bmmClassDef() ;
 
         // don't bother with traversal if artefact not well-formed
         if (errors.hasNoErrors()) {
             ParseTreeWalker walker = new ParseTreeWalker();
             BmmlParserBaseListener reader =  new BmmlParserBaseListener();
-            walker.walk (reader, stmtBlock);
+            walker.walk (reader, classDef);
         }
     }
 

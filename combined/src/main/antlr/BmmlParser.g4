@@ -13,7 +13,7 @@ import ElParser;
 
 // ========================== BMML Classes ==========================
 
-bmmClassDef: bmmClassImport+ bmmClassDecl ;
+bmmClassDef: bmmClassImport+ bmmClassDecl EOF ;
 
 bmmClassImport: SYM_IMPORT bmmPackageId ';' ;
 
