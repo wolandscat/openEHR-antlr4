@@ -9,7 +9,7 @@
 //
 
 lexer grammar BelLexer;
-import Cadl2PrimitiveValuesLexer, GeneralLexer;
+import Cadl2PrimitiveValuesLexer, SymbolsLexer, GeneralIdsLexer;
 
 channels {
     COMMENT
@@ -22,20 +22,6 @@ WS       : [ \t\r]+     -> channel(HIDDEN) ;
 
 // --------- symbols ----------
 SYM_ASSIGNMENT: ':=' | '::=' ;
-SYM_COLON : ':' ;
-SYM_NE : '/=' | '!=' | '≠' ;
-SYM_EQ : '=' ;
-SYM_GT : '>' ;
-SYM_LT : '<' ;
-SYM_LE : '<=' | '≤' ;
-SYM_GE : '>=' | '≥' ;
-
-SYM_PLUS    : '+' ;
-SYM_MINUS   : '-' ;
-SYM_TIMES   : '*' ;
-SYM_SLASH   : '/' ;
-SYM_PERCENT : '%' ;
-SYM_CARET   : '^' ;
 
 SYM_THEN     : 'then' | 'THEN' ;
 SYM_AND      : 'and' | 'AND' | '∧' ;

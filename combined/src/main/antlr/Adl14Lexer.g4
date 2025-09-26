@@ -9,7 +9,7 @@
 //
 
 lexer grammar Adl14Lexer;
-import OpenehrPatterns;
+import OpenehrIdsLexer;
 
 channels {
     COMMENT
@@ -35,10 +35,10 @@ fragment SYM_SPECIALIZE: 'specialise' | 'specialize' ;
 CONCEPT_HEADER  : SYM_CONCEPT EOL -> mode (CONCEPT) ;
 fragment SYM_CONCEPT : 'concept' ;
 
-METADATA_START  : '(' ;
-METADATA_END    : ')' EOL ;
-METADATA_SEP    : ';' ;
-SYM_EQ          : '=' ;
+METADATA_START : '(' ;
+METADATA_END   : ')' EOL ;
+SYM_EQ         : '=' ;
+SYM_SEMI_COLON : ';' ;
 
 // include here any kind of id or other special string that can occur in meta-data
 ARCHETYPE_REF2 : ARCHETYPE_REF -> type (ARCHETYPE_REF) ;
@@ -46,7 +46,7 @@ GUID2          : GUID -> type (GUID) ;
 VERSION_ID2    : VERSION_ID -> type (VERSION_ID) ;
 ALPHANUM_ID    : [a-zA-Z0-9][a-zA-Z0-9_]* ;
 // we define a rule for matching OIDs here because they are only
-// needed in the archetype header; if we add them to the BaseLexer
+// needed in the archetype header; if we add them to the PrimitiveTypesLexer
 // the rule may match real numbers, version ids etc.
 OID: INTEGER ( '.' INTEGER )+ ;
 
@@ -70,6 +70,9 @@ CONCEPT_START : WS? SYM_LBRACKET -> type (SYM_LBRACKET);
 CONCEPT_END   : SYM_RBRACKET WS? -> type (SYM_RBRACKET);
 CONCEPT_TERM  : ADL14_AT_CODE -> type (ADL14_AT_CODE);
 EOL_C         : EOL -> channel(HIDDEN) ;
+
+SYM_LBRACKET : '[' ;
+SYM_RBRACKET : ']' ;
 
 // ------------------- MODE: language section --------------------
 // look for 'description' section, otherwise grab complete lines

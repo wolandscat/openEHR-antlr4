@@ -9,7 +9,7 @@
 //
 
 lexer grammar AqlLexer;
-import Cadl14Lexer, OpenehrPatterns, BaseLexer, AqlGeneral, GeneralLexer;
+import Cadl14Lexer, OpenehrIdsLexer, PrimitiveTypesLexer, AqlGeneral, GeneralIdsLexer;
 
 channels {
     COMMENT

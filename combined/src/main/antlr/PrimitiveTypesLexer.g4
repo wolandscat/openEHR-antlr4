@@ -5,7 +5,7 @@
 //  copyright:   Copyright (c) 2018- openEHR Foundation <http://www.openEHR.org>
 //
 
-lexer grammar BaseLexer;
+lexer grammar PrimitiveTypesLexer;
 
 // ------------- openEHR Augmented ISO8601 Date/Time patterns -----------
 
@@ -134,15 +134,3 @@ fragment HEX_DIGIT : [0-9a-fA-F] ;
 fragment OCTAL_ESC: '\\' [0-3] OCTAL_DIGIT OCTAL_DIGIT | '\\' OCTAL_DIGIT OCTAL_DIGIT | '\\' OCTAL_DIGIT;
 fragment OCTAL_DIGIT: [0-7];
 
-// -------------------- common symbols ---------------------
-
-SYM_DOT: '.' ;
-SYM_COMMA: ',' ;
-SYM_SEMI_COLON : ';' ;
-
-SYM_LPAREN   : '(';
-SYM_RPAREN   : ')';
-SYM_LBRACKET : '[';
-SYM_RBRACKET : ']';
-SYM_LCURLY   : '{' ;
-SYM_RCURLY   : '}' ;

@@ -6,6 +6,4 @@
 //
 
 lexer grammar AdlPathLexer;
-import OpenehrPatterns, GeneralLexer;
-
-SYM_SLASH: '/';
+import OpenehrIdsLexer, SymbolsLexer, GeneralIdsLexer;

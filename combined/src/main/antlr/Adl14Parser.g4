@@ -44,7 +44,7 @@ authoredArchetype:
 // Header: meta-data items in parentheses followed by archetype ID
 header: metaData? ARCHETYPE_REF ;
 
-metaData: METADATA_START metaDataItem ( METADATA_SEP metaDataItem )* METADATA_END ;
+metaData: '(' metaDataItem ( ';' metaDataItem )* METADATA_END ;
 
 metaDataItem:
       metaDataValueItem

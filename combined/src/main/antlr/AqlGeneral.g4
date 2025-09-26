@@ -7,7 +7,7 @@
 //
 
 lexer grammar AqlGeneral;
-import GeneralLexer;
+import GeneralIdsLexer;
 
 // general identifiers
 PARAMETER: '$' ALPHA_CHAR ALPHANUM_US_CHAR*;

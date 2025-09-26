@@ -11,7 +11,7 @@
 //
 
 lexer grammar Cadl2PrimitiveValuesLexer;
-import OpenehrPatterns, PrimitiveValuesLexer;
+import OpenehrIdsLexer, PrimitiveValuesLexer;
 
 // ---------- ISO8601-based date/time/duration constraint patterns
 
@@ -28,10 +28,6 @@ fragment SECOND_PATTERN : 'ss' | 'SS' | '??' | 'XX' | 'xx'  ;
 fragment TZ_PATTERN     : '±' ('hh' | 'HH') (':'? ('mm' | 'MM'))? | 'Z' ;
 
 DURATION_CONSTRAINT_PATTERN  : 'P' [yY]?[mM]?[Ww]?[dD]? ( 'T' [hH]?[mM]?[sS]? )? ;
-
-// -------------------- Symbols ------------------------
-
-SYM_SLASH: '/' ;
 
 // ---------- Delimited Regex matcher ------------
 // This matches a regex and performs a small trick by matching

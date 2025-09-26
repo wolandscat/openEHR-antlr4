@@ -10,11 +10,11 @@ parser grammar PrimitiveValuesParser;
 options { tokenVocab=PrimitiveValuesLexer; }
 
 primitiveObject :
-      primitiveValue
-    | primitiveList
+      primitiveList
     | primitiveArray
     | primitiveSet
     | primitiveInterval
+    | primitiveValue
     ;
 
 primitiveValue :

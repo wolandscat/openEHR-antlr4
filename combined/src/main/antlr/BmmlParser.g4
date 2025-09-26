@@ -15,9 +15,11 @@ import ElParser;
 
 bmmModuleDef: bmmModuleImport+ ( bmmClassDecl | bmmEnumDecl ) SYM_END EOF ;
 
-bmmModuleImport: SYM_IMPORT bmmPackageId ';' ;
+bmmModuleImport: SYM_IMPORT bmmNamespaceId ';' ;
 
-bmmPackageId: NAMESPACED_ID ;
+bmmNamespaceId: bmmNamespaceSegmentId ( '.' bmmNamespaceSegmentId )+ ;
+
+bmmNamespaceSegmentId: LC_ID | UC_ID | WEB_ID ;
 
 bmmClassDecl: SYM_ABSTRACT? SYM_CLASS typeDecl bmmClassInheritDecl? bmmFeatureGroup* bmmInvariantDecl? ;
 
@@ -79,8 +81,7 @@ typeSpecifier: typeId bmmMultiplicity? bmmValueConstraint? ;
 // need to check the integer = 0 or 1 only
 bmmMultiplicity: '[' ( bmmMultiplicityLower '..' )? '*' ( multiplicityMod multiplicityMod? )? ']' ;
 bmmMultiplicityLower: INTEGER ;
-bmmValueConstraint: SYM_LEFT_GUILLEMET bmmValueConstraintId SYM_RIGHT_GUILLEMET ;
-bmmValueConstraintId: NAMESPACED_ID ;
+bmmValueConstraint: SYM_LEFT_GUILLEMET bmmNamespaceId SYM_RIGHT_GUILLEMET ;
 
 typeDecl: UC_ID ( '<' typeConstrained ( ',' typeConstrained )* '>' )? ;
 typeConstrained: UC_ID ( ':' typeId )? ;

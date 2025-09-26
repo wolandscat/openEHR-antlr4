@@ -8,7 +8,7 @@
 //
 
 lexer grammar ElLexer;
-import Cadl2Lexer, GeneralLexer;
+import Cadl2Lexer, SymbolsLexer, GeneralIdsLexer;
 
 channels {
     COMMENT
@@ -18,7 +18,8 @@ channels {
 CMT_LINE : '--' ~[\r\n]* -> channel(COMMENT) ;
 BLOCK_DELIM : '====' '='* EOL ;
 BLOCK_CMT_LINE_EMPTY : WS* '|' WS* EOL -> channel(COMMENT) ;
-BLOCK_CMT_LINE : WS* '|' [ \t] ~[\r\n]+ -> channel(COMMENT) ;
+//BLOCK_CMT_LINE_1 :     WS+ '|' [ \t] ~[\r\n]+ EOL -> channel(COMMENT) ;
+BLOCK_CMT_LINE_2 : { _input.LA(-1) == '\n' }? WS* '|' [ \t] ~[\r\n]+ -> channel(COMMENT) ;
 
 EOL      : '\r'? '\n'   -> channel(HIDDEN) ;
 WS       : [ \t\r]+     -> channel(HIDDEN) ;
@@ -35,13 +36,9 @@ SYM_RESULT  : 'Result' ;
 
 // --------- symbols ----------
 SYM_ASSIGNMENT: ':=' ;
-SYM_COLON : ':' ;
 SYM_INTERROGATION: '?' ;
-SYM_NE : '/=' | '!=' | '≠' ;
-SYM_EQ : '=' ;
 SYM_LEFT_GUILLEMET: '«' ;
 SYM_RIGHT_GUILLEMET: '»' ;
-SYM_DOT     : '.' ;
 
 SYM_BROKEN_BAR: '¦' ;
 

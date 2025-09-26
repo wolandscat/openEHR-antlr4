@@ -11,7 +11,7 @@
 //
 
 lexer grammar BmmlLexer;
-import ElLexer, BaseLexer, GeneralLexer;
+import ElLexer, PrimitiveTypesLexer, GeneralIdsLexer;
 
 channels {
     COMMENT
@@ -45,6 +45,3 @@ SYM_END: 'end' ;
 
 // --------- symbols ----------
 SYM_NULLABLE_TYPE_DECL: ':?' ;
-
-// ----------------------- identifiers -----------------------
-NAMESPACED_ID: LABEL ( '.' LABEL )+ ;

@@ -8,7 +8,7 @@
 //
 
 lexer grammar OdinLexer;
-import OdinValuesLexer, GeneralLexer;
+import OdinValuesLexer, GeneralIdsLexer;
 
 channels {
     COMMENT
@@ -22,9 +22,4 @@ WS       : [ \t\r]+     -> channel(HIDDEN) ;
 // ---------- URIs for use in ODIN ---------
 ODIN_URI: URI;
 
-// -------------------- symbols for lists ------------------------
-SYM_LIST_CONTINUE: '...' ;
 
-// ------------------ symbols  ----------------------
-SYM_EQ : '=' ;
-SYM_SLASH : '/' ;

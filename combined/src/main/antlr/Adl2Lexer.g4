@@ -9,7 +9,7 @@
 //
 
 lexer grammar Adl2Lexer;
-import OpenehrPatterns;
+import OpenehrIdsLexer;
 
 channels {
     COMMENT
@@ -39,10 +39,10 @@ fragment SYM_SPECIALIZE: 'specialise' | 'specialize' ;
 LANGUAGE_HEADER      : EOL SYM_LANGUAGE EOL -> mode (LANGUAGE) ;
 fragment SYM_LANGUAGE: 'language' ;
 
-METADATA_START  : '(' ;
-METADATA_END    : ')' EOL ;
-METADATA_SEP    : ';' ;
-SYM_EQ          : '=' ;
+METADATA_START : '(' ;
+METADATA_END   : ')' EOL ;
+SYM_EQ         : '=' ;
+SYM_SEMI_COLON : ';' ;
 
 // include here any kind of id or other special string that can occur in meta-data
 ARCHETYPE_HRID2 : ARCHETYPE_HRID -> type (ARCHETYPE_HRID) ;
@@ -50,7 +50,7 @@ GUID2           : GUID -> type (GUID) ;
 VERSION_ID2     : VERSION_ID -> type (VERSION_ID) ;
 ALPHANUM_ID     : [a-zA-Z0-9][a-zA-Z0-9_]* ;
 // we define a rule for matching OIDs here because they are only
-// needed in the archetype header; if we add them to the BaseLexer
+// needed in the archetype header; if we add them to the PrimitiveTypesLexer
 // the rule may match real numbers, version ids etc.
 OID: INTEGER ( '.' INTEGER )+ ;
 

@@ -11,7 +11,7 @@
 //
 
 lexer grammar Cadl2Lexer;
-import OpenehrPatterns, Cadl2PrimitiveValuesLexer, GeneralLexer;
+import Cadl2PrimitiveValuesLexer, GeneralIdsLexer;
 
 channels {
     COMMENT
@@ -40,16 +40,6 @@ SYM_CLOSED      : 'closed' ;
 
 // --------------------- general symbols ------------------------
 SYM_MATCHES  : 'matches' | 'is_in' | '∈' ;
-SYM_ASTERISK  : '*' ;
-SYM_LE : '<=' | '≤' ;
-SYM_GE : '>=' | '≥' ;
-SYM_GT : '>' ;
-SYM_LT : '<' ;
-SYM_SLASH: '/' ;
-
-// ------------------ symbols for intervals ---------------------
-SYM_IVL_DELIM: '|' ;
-SYM_IVL_SEP  : '..' ;
 
 // ----------------------- default blocks --------------------------
 // ODIN flavour

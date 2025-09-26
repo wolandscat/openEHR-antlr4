@@ -7,8 +7,8 @@
 // license:     Apache 2.0 License <http://www.apache.org/licenses/LICENSE-2.0.html>
 //
 
-lexer grammar OpenehrPatterns;
-import BaseLexer;
+lexer grammar OpenehrIdsLexer;
+import PrimitiveTypesLexer;
 
 // ---------------------------- UIDs ---------------------------
 fragment UID: UUID | INTERNET_ID | ISO_OID ;
