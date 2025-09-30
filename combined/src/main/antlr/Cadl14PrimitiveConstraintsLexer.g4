@@ -10,8 +10,8 @@
 // license:     Apache 2.0 License <http://www.apache.org/licenses/LICENSE-2.0.html>
 //
 
-lexer grammar Cadl14PrimitiveValuesLexer;
-import Cadl2PrimitiveValuesLexer, OpenehrIdsLexer, GeneralIdsLexer;
+lexer grammar Cadl14PrimitiveConstraintsLexer;
+import Cadl2PrimitiveConstraintsLexer, OpenehrIdsLexer, GeneralIdsLexer;
 
 channels {
     COMMENT

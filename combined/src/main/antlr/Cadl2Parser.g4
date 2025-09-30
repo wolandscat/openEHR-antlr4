@@ -9,7 +9,7 @@
 
 parser grammar Cadl2Parser;
 options { tokenVocab=Cadl2Lexer; }
-import Cadl2PrimitiveValuesParser, AdlPathParser;
+import Cadl2PrimitiveConstraintsParser, AdlPathParser;
 
 //
 //  ======================= Top-level Objects ========================

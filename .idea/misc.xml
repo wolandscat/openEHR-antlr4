@@ -9,7 +9,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -19,7 +19,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -29,7 +29,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -39,7 +39,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -49,7 +49,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -59,7 +59,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -69,7 +69,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -79,7 +79,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -89,7 +89,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -99,7 +99,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -109,7 +109,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -119,7 +119,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -129,7 +129,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -139,7 +139,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -149,7 +149,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -159,7 +159,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
@@ -169,7 +169,7 @@
           <option name="outputDir" value="" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="org.openehr.combinedparser" />
+          <option name="pkg" value="org.openehr.antlr4" />
           <option name="language" value="" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>

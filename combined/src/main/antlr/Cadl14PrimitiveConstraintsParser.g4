@@ -8,9 +8,9 @@
 // license:     Apache 2.0 License <http://www.apache.org/licenses/LICENSE-2.0.html>
 //
 
-parser grammar Cadl14PrimitiveValuesParser;
-options { tokenVocab=Cadl14PrimitiveValuesLexer; }
-import Cadl2PrimitiveValuesParser;
+parser grammar Cadl14PrimitiveConstraintsParser;
+options { tokenVocab=Cadl14PrimitiveConstraintsLexer; }
+import Cadl2PrimitiveConstraintsParser;
 
 // ------------------------- C_TERMINOLOGY_CODE ---------------------------
 

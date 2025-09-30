@@ -57,8 +57,8 @@ SYM_THERE_EXISTS: 'there_exists' | '∃' ;
 SYM_MATCHES  : 'matches' | 'is_in' | '∈' ;
 SYM_ASSERT   : 'assert' ;
 
-// TODO: replace with defined() and attached() predicates
-SYM_EXISTS   : 'exists' ;
+// Non-null assertion operator; we allow the box symbol from modal logic here
+SYM_EXISTS   : 'exists' | '□' ;
 
 BOUND_VARIABLE_ID: '$' LC_ID ;
 

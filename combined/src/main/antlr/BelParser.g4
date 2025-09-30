@@ -10,7 +10,7 @@
 
 parser grammar BelParser;
 options { tokenVocab=BelLexer; }
-import Cadl2PrimitiveValuesParser, AdlPathParser;
+import Cadl2PrimitiveConstraintsParser, AdlPathParser;
 
 //
 //  ======================= Top-level Objects ========================

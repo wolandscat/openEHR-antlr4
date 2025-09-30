@@ -9,7 +9,7 @@
 
 parser grammar Cadl14Parser;
 options { tokenVocab=Cadl14Lexer; }
-import Cadl14PrimitiveValuesParser, AdlPathParser, OdinParser;
+import Cadl14PrimitiveConstraintsParser, AdlPathParser, OdinParser;
 
 //
 //  ======================= Top-level Objects ========================

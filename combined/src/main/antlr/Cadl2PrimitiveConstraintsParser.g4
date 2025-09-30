@@ -8,8 +8,8 @@
 // license:     Apache 2.0 License <http://www.apache.org/licenses/LICENSE-2.0.html>
 //
 
-parser grammar Cadl2PrimitiveValuesParser;
-options { tokenVocab=Cadl2PrimitiveValuesLexer; }
+parser grammar Cadl2PrimitiveConstraintsParser;
+options { tokenVocab=Cadl2PrimitiveConstraintsLexer; }
 import PrimitiveValuesParser;
 
 cInlinePrimitiveObject:
