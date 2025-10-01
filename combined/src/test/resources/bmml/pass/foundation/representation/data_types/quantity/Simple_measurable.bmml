@@ -17,5 +17,9 @@ feature_group("access")
 
     prop magnitude : Numeric;
 
+    func effective_value : Decimal
+        Result := magnitude;
+        ;
+
 end
 

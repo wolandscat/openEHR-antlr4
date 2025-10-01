@@ -1,5 +1,5 @@
 | 
-| 	description: Binned_value class
+| 	description: Binned_custom class
 | 	keywords:    SPLASH data value model
 | 	author:      Thomas Beale <thomas.beale@splash-lang.org>
 | 	support:     https://splash-lang.atlassian.net/issues/
@@ -11,14 +11,16 @@ import org.splash-lang.foundation.representation.base_types ;
 
 |
 | A measurement reported in a 'binned' fashion i.e. as a range (often termed a 'bucket' or 'bin'). 
-| The bin is from a series of ranges, some of which may not be numerically specified, e.g. 'trace'.
+| The bin is from a series of ranges, most numerically specified, e.g. '50ng - 200ng',
+| but some of which may not be numerically specified, e.g. 'trace'.
+| Bin names are not standardised or coded.
 |
-class Binned_value 
-    is_a Measurable
+class Binned_custom 
+    is_a Ordered_value
 
 feature_group("access")
 
-    prop range : Text;
+    prop bin_name : Text;
 
     |
     | Numeric ranking allows ordering of numeric and non-numeric ranges to be defined 
@@ -35,7 +37,7 @@ feature_group("access")
     | A textual description or reference to an online resource describing the value
     | stratification of which this is an instance
     |
-    prop description : Text;
+    prop description :? Text;
 
 end
 

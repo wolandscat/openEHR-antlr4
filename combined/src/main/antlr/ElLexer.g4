@@ -26,7 +26,6 @@ WS       : [ \t\r]+     -> channel(HIDDEN) ;
 
 // --------- keywords ----------
 
-SYM_DEFINED : 'defined' ;
 SYM_SELF    : 'Self' ;
 SYM_IN      : 'in' ;
 SYM_CHOICE  : 'choice' ;

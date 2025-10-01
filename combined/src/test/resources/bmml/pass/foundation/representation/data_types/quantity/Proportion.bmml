@@ -17,7 +17,10 @@ feature_group("access")
 
     prop numerator : Quantity;
 
-    prop denomiator : Quantity;
+    prop denominator : Quantity;
 
+    func effective_value : Decimal
+        Result := numerator.magnitude / numerator.magnitude;
+        ;
 end
 

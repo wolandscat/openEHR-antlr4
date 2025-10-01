@@ -10,6 +10,7 @@
 import org.splash-lang.foundation.representation.base_types ;
 
 
-abstract class Coumpound_measurable 
+abstract class Compound_measurable
     is_a Measurable
+
 end

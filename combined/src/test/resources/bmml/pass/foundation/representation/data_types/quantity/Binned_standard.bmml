@@ -1,5 +1,5 @@
 | 
-| 	description: Coded_ordinal class
+| 	description: Binned_standard class
 | 	keywords:    SPLASH data value model
 | 	author:      Thomas Beale <thomas.beale@splash-lang.org>
 | 	support:     https://splash-lang.atlassian.net/issues/
@@ -11,16 +11,18 @@ import org.splash-lang.foundation.representation.base_types ;
 
 
 |
-| Used to record values that are reported as terms that are considered ordered, such as `{"small", "medium", "large"}`
+| Used to record measured values that are reported as terms that identify bins,
+| such as `{"small", "medium", "large"}`, where the quantity ranges for each bin are standardised. 
 | The rank establishes the ordering.
+| Conceptually similar to a `Binned_value`, except that `bin_name` is coded.
 |
-class Coded_ordinal 
+class Binned_standard 
     is_a Ordered_value
 
 feature_group("access")
 
     prop rank : Integer;
 
-    prop concept : Terminology_term;
+    prop bin_name : Terminology_term;
 
 end

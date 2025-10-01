@@ -62,9 +62,9 @@ bmmPropertyDecl: SYM_PROPERTY LC_ID ( ':' | ':?' ) typeSpecifier ;
 
 bmmRoutineDecl: SYM_ABSTRACT? ( bmmProcedureDecl | bmmFunctionDecl ) ;
 
-bmmProcedureDecl: SYM_PROCEDURE LC_ID bmmArgsDecl? ;
+bmmProcedureDecl: SYM_PROCEDURE LC_ID bmmArgsDecl? statement* ;
 
-bmmFunctionDecl: SYM_FUNCTION LC_ID bmmArgsDecl? ( ':' | ':?' ) typeSpecifier ;
+bmmFunctionDecl: SYM_FUNCTION LC_ID bmmArgsDecl? ( ':' | ':?' ) typeSpecifier statement* ;
 
 // nullable args not allowed - use overloads
 bmmArgsDecl: '(' bmmArgDecl ( ',' bmmArgDecl )* ')' ;

@@ -74,7 +74,7 @@ elBooleanLeaf:
     | elArithmeticConstraintExpr
     | elGeneralConstraintExpr
     | '(' elBooleanExpr ')'
-    | SYM_DEFINED '(' elValueGenerator ')'
+    | SYM_EXISTS elValueGenerator
     | elArithmeticComparisonExpr
     | elObjectComparisonExpr
     | elValueGenerator

@@ -17,7 +17,8 @@ feature_group("access")
 
     prop precision : Integer;
 
-    abstract func effective_value : Decimal;
+    abstract func effective_value : Decimal
+        ;
 
 end
 
