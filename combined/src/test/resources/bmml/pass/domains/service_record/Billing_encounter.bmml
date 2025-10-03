@@ -1,0 +1,29 @@
+|
+| 	description: Xxxxx class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+abstract class Billing_encounter
+    is_a Care_process
+
+feature_group("access")
+
+    prop identifier : Rwe_id_ref ;
+
+    prop external_identifiers :? Node [*; list] ;
+
+    prop service_events :? Service_event [*; list] ;
+
+    prop lifecycle_state : Encounter_state ;
+
+    |
+    | Mode of interaction: virtual, attendance, etc
+    |
+    prop interaction_mode : Terminology_term ;
+
+end
+

@@ -1,0 +1,37 @@
+|
+| 	description: Ehr_status class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+class Ehr_status
+    is_a Locatable
+
+feature_group("access")
+
+    |
+    | Optional subject identifier.
+    | DO NOT USE for secure records; instead, use an Ehr_id / subject resolution service
+    |
+    prop subject :? Entity_ref_node ;
+
+    |
+    | TODO: 
+    |
+    prop is_queryable : Boolean ;
+
+    |
+    | TODO: 
+    |
+    prop is_modifiable : Boolean ;
+
+    |
+    | TODO: 
+    |
+    prop other_details :? Node [*; list] ;
+
+end
+

@@ -1,0 +1,66 @@
+|
+| 	description: Ehr class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+class Ehr
+    is_a Any
+
+feature_group("access")
+
+    |
+    | TODO: 
+    |
+    prop system_id : Internet_id ;
+
+    |
+    | TODO: 
+    |
+    prop ehr_id : Uuid ;
+
+    |
+    | TODO: 
+    |
+    prop contributions : Object_ref [*; list] ;
+
+    |
+    | TODO: 
+    |
+    prop folders :? Object_ref [*; list] ;
+
+    |
+    | TODO: 
+    |
+    prop subject_state : Object_ref [*; list] ;
+
+    |
+    | TODO: 
+    |
+    prop subject_events : Object_ref [*; list] ;
+
+    |
+    | TODO: 
+    |
+    prop subject_plans : Object_ref [*; list] ;
+
+    |
+    | TODO: 
+    |
+    prop subject_processes : Object_ref [*; list] ;
+
+    |
+    | TODO: 
+    |
+    prop ehr_status : Object_ref ;
+
+    |
+    | TODO: 
+    |
+    prop ehr_access : Object_ref ;
+
+end
+
