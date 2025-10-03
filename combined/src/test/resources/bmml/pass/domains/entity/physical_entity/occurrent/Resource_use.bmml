@@ -1,0 +1,26 @@
+|
+| 	description: Xxxxx class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation;
+
+abstract class Resource_use
+    is_a Locatable
+
+feature_group("access")
+
+    prop start_time : Date_time ;
+
+    prop duration :? Duration ;
+
+    prop cost_data :? Node [*; list] ;
+
+    prop description : Node [*; list] ;
+
+end
+

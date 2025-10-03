@@ -1,0 +1,20 @@
+|
+| 	description: Xxxxx class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation;
+
+abstract class Material_object
+	is_a Material_entity<Object_kind>
+
+feature_group("access")
+
+    prop lot_information :? Node [*; list] ;
+
+end
+

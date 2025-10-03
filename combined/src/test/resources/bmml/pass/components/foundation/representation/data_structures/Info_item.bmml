@@ -1,0 +1,27 @@
+|
+| 	description: Info_item class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+abstract class Info_item 
+    is_a Locatable
+
+feature_group("infrastructure")
+
+    |
+    | Is-about code of this node.
+    |
+    prop is_about : Terminology_term ;
+
+end
+
+
+
+

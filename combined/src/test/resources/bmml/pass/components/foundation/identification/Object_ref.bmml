@@ -1,0 +1,41 @@
+|
+| 	description: Object_ref class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+
+class Object_ref 
+    is_a Any
+
+feature_group("infrastructure")
+
+    |
+    | Optional namespace in which target object id can be resolved
+    |
+    prop namespace :? String ;
+
+    |
+    | Machine identifier of target object.
+    |
+    prop id : Object_id ;
+
+    |
+    | Typename of object in current type system.
+    | TODO: determine if anything is allowed here - probably needs to be
+    |
+    prop type : String ;
+
+    |
+    | Optional path from object root to final target.
+    |
+    prop path :? String ;
+
+end
+
+
+
+

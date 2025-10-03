@@ -1,0 +1,70 @@
+|
+| 	description: Statement class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation ;
+
+
+|
+| Abstract parent of Statement types.
+|
+abstract class Statement 
+    is_a Content_item
+
+feature_group("access")
+
+    |
+    | Uuid of this Statement.
+    |
+    prop uid : Uuid ;
+
+    |
+    | Language of this Statement, if different from the owning Composition.
+    |
+    prop language :? Terminology_code «iso.iso_639-1» ;
+
+    |
+    | Subject of this Statement.
+    |
+    prop subject : Entity_ref_node ;
+
+    |
+    | Reporter of this Statement.
+    |
+    prop reporter : Participation ;
+
+    |
+    | Other participations involved in the acts creating this Statement.
+    |
+    prop other_participations :? Participation [*; list] ;
+
+    |
+    | Time of occurrence of the relevant real world process entity.
+    |
+    prop occurrent_time : Date_time ;
+
+    |
+    | Reference to workflow that caused this Statement to be created.
+    |
+    prop workflow_id :? String ;
+
+    |
+    | Reference to an Order that caused the act generating this Statement.
+    |
+    prop related_order : Entity_ref_node ;
+
+    |
+    | Comments.
+    |
+    prop comment :? Text ;
+
+end
+
+
+
+

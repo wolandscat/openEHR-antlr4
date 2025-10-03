@@ -1,0 +1,57 @@
+|
+| 	description: Source_system_audit class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+class Source_system_audit 
+    is_a Any
+
+feature_group("infrastructure")
+
+    |
+    | System identifier; generally a domain name
+    |
+    prop system_id : String ;
+
+    |
+    | Identifier of the original data item in the original system.
+    |
+    prop system_item_id :? String ;
+
+    |
+    | Audit information from gateway system, if any.
+    |
+    prop facility :? Entity_ref_node ;
+
+    |
+    | Optional reference to subject of original information
+    |
+    prop subject :? Entity_ref_node ;
+
+    |
+    | Optional reference to recorder of original information.
+    |
+    prop recorder :? Entity_ref_node ;
+
+    |
+    | Original version identifier relating to this data item, if any.
+    |
+    prop version_id :? String ;
+
+    |
+    | Other details.
+    |
+    prop other_details :? Node [*] ;
+
+end
+
+
+
+

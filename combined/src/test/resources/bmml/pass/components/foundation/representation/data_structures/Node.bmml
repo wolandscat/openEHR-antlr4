@@ -1,0 +1,30 @@
+|
+| 	description: Node class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+abstract class Node 
+    is_a Info_item
+
+feature_group("access")
+
+    prop value : Data_value;
+
+    prop null_flavor :? Terminology_term «splash-lang.NullFlavor» ;
+
+    prop null_reason :? Text ;
+
+    prop items : Node[*; list] ;
+
+end
+
+
+
+

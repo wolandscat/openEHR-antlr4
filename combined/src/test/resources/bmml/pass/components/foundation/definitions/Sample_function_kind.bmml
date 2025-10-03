@@ -1,0 +1,31 @@
+| 
+| 	description: Sample_function_kind class
+| 	keywords:    SPLASH data value model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+enumeration Sample_function_kind
+    base_type String
+
+feature_group ("values")
+
+    actual ("actual");
+    minimum ("minimum");
+    maximum ("maximum");
+    mean ("mean");
+    mode ("mode");
+    median ("median");
+    increase ("increase");
+    decrease ("decrease");
+    change ("change");
+    total ("total");
+
+end
+
+

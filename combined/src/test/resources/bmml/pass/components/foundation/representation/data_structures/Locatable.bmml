@@ -1,0 +1,51 @@
+|
+| 	description: Locatable class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+abstract class Locatable 
+    is_a Pathable
+
+feature_group("infrastructure")
+
+    |
+    | Optional unique identifier of this information element.
+    |
+    prop uid :? Uuid ;
+
+    |
+    | Node identifier from archetype that marks this node
+    |
+    prop archetype_node_id : String ;
+
+
+    |
+    | For archetype root points, archetype id and specialisation lineage
+    |
+    prop archetype_details :? Archetyped ;
+
+    |
+    | Optional meta-data relating to conversion from source system data.
+    |
+    prop source_data_conversion :? Source_data_conversion ;
+
+feature_group("access")
+
+    |
+    | Optional runtime name for this element; if not set, understood to be the term
+    | defined in the archetype, corresponding to `archetype_node_id`.
+    |
+    prop name :? String ;
+
+end
+
+
+
+

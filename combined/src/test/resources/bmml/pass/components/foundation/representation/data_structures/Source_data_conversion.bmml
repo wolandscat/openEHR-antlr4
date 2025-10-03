@@ -1,0 +1,42 @@
+|
+| 	description: Source_data_conversion class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+class Source_data_conversion 
+    is_a Any
+
+feature_group("infrastructure")
+
+    |
+    | Snapshot of the source data generating this data element, in any form(at).
+    |
+    prop source_data_snapshot :? Encapsulated ;
+
+    |
+    | Audit information from source system, relating to the source data.
+    |
+    prop source_system_audit : Source_system_audit ;
+
+    |
+    | Audit information from gateway system, if any.
+    |
+    prop gateway_system_audit :? Source_system_audit ;
+
+    |
+    | Time of data conversion.
+    |
+    prop time : Date_time ;
+
+end
+
+
+
+

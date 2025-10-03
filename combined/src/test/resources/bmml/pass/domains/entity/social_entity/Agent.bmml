@@ -1,0 +1,20 @@
+|
+| 	description: Xxxxx class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+abstract class Agent
+    is_a Party
+
+feature_group("access")
+
+    prop personas :? Persona [*; list] ;
+
+    prop languages :? Node [*; list] ;
+
+end
+

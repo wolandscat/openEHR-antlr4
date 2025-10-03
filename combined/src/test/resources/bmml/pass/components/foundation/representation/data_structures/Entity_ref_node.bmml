@@ -1,0 +1,32 @@
+|
+| 	description: Entity_ref_node class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+abstract class Entity_ref_node 
+    is_a Node
+
+feature_group("access")
+
+    |
+    | Reference to the target entity, if it exists. If not, the
+    | `value` property can be used to contain the type of Entity, usually as a coded term;
+    | `items` may be used to contain thumbnail attributes.
+    |
+    | A special target object may be used to represent the subject of the data, usually
+    | not containing any identifying data.
+    |
+    prop entity_ref :? Object_ref ;
+
+end
+
+
+
+

@@ -1,0 +1,28 @@
+|
+| 	description: Info_node class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+class Info_node 
+    is_a Node
+
+feature_group("access")
+
+    |
+    | Use for values expressed in a terminology that was converted
+    | to create the current `value`, and quantities whose units were converted
+    |
+    prop original_value :? Data_value;
+
+end
+
+
+
+

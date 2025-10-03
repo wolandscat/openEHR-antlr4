@@ -1,0 +1,23 @@
+|
+| 	description: Content_item class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation ;
+
+
+|
+| Abstract parent of items that may be content within a Composition.
+|
+abstract class Content_item 
+    is_a Info_item
+
+end
+
+
+
+

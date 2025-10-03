@@ -1,0 +1,66 @@
+|
+| 	description: Resource_description_item class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+|
+| Detailed description of the resource.
+|
+class Resource_description_item 
+    is_a Any
+
+feature_group("access")
+
+    |
+    | Language of this translation.
+    |
+    prop language : Terminology_code «iso.iso_639-1» ;
+
+    |
+    | Purpose of the resource.
+    |
+    prop purpose : String ;
+
+    |
+    | Keywords.
+    |
+    prop keywords :? String [*; list] ;
+
+    |
+    | Other details
+    |
+    prop other_details :? String:String [*; map] ;
+
+    |
+    | Description of the use of the resource.
+    |
+    prop use :? String ;
+
+    |
+    | Description of the misuse of the resource.
+    |
+    prop misuse :? String ;
+
+
+    |
+    | Original resource URI.
+    |
+    prop original_resource_uri :? String:String [*; map] ;
+
+    |
+    | Other details
+    |
+    prop other_details :? String:String [*; map] ;
+
+end
+
+
+
+

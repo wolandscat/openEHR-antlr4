@@ -1,0 +1,24 @@
+|
+| 	description: Version_tree_id class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+class Version_tree_id 
+    is_a Any
+
+feature_group("access")
+
+    |
+    | Identifier
+    |
+    prop value : String ;
+
+end
+
+
+
+

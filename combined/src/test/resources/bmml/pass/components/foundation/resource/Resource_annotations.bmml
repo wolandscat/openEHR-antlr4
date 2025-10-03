@@ -1,0 +1,31 @@
+|
+| 	description: Resource_annotations class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+|
+| Annotations content.
+|
+class Resource_annotations 
+    is_a Any
+
+feature_group("access")
+
+    |
+    | Documentation item, keyed by path and then element key
+    | TODO: fix the representation here - either a tree, or break out to nest maps
+    |
+    prop documentation : String:String [*; map] ;
+
+end
+
+
+
+

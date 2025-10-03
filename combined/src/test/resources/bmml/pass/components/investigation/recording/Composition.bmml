@@ -1,0 +1,61 @@
+|
+| 	description: Composition class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+|
+| Commit container for one collection of statements, for one encounter between a 
+| subject and a care provision system.
+|
+abstract class Composition 
+    is_a Info_item
+
+feature_group("access")
+
+    |
+    | Uuid of this Composition.
+    |
+    prop uid : Uuid ;
+
+    |
+    | Language of this Composition.
+    |
+    prop language : Terminology_code «iso.iso_639-1» ;
+
+    |
+    | Territory in which this Composition was created.
+    |
+    prop territory : Terminology_code «iso.iso_3166-1-alpha2» ;
+
+    |
+    | Category of this Composition.
+    |
+    prop category : Terminology_code «splash-lang.Composition_category» ;
+
+    |
+    | Legally responsible author of the content of this Composition.
+    |
+    prop author : Entity_ref_node ;
+
+    |
+    | Context that produced this Composition.
+    |
+    prop context :? Event_context ;
+
+    |
+    | Translations of the resource, keyed by language code
+    |
+    prop content : Content_item [*; list] ;
+
+end
+
+
+
+

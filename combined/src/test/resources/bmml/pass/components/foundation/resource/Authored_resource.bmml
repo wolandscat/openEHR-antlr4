@@ -1,0 +1,50 @@
+|
+| 	description: Authored_resource class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+|
+| Meta-data container for design-time resource that may have translations.
+|
+abstract class Authored_resource 
+    is_a Any
+
+feature_group("access")
+
+    |
+    | Original lanuage of authoring.
+    |
+    prop original_language : Terminology_code «iso.iso_639-1» ;
+
+    |
+    | Indicator for whether this resource instance has an authoritative, controlled resource.
+    |
+    prop is_controlled : Boolean ;
+
+    |
+    | Description of the resource.
+    |
+    prop description : Resource_description ;
+
+    |
+    | Annotations.
+    |
+    prop annotations :? Resource_annotations ;
+
+    |
+    | Translations of the resource, keyed by language code
+    |
+    prop translations :? String:Translation_details [*; map] ;
+
+end
+
+
+
+

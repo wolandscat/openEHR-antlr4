@@ -1,0 +1,48 @@
+|
+| 	description: Participation class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation.base_types ;
+
+
+|
+| Participation of an Entity in a Process (per BFO).
+| TODO: consider whether we limit this to Party, and use Resource_usage or similar
+| to represent involvement of objects / passive entities, which BFO considers
+| 'participation' as well.
+|
+abstract class Participation 
+    is_a Locatable
+
+feature_group("access")
+
+    |
+    | Function of performer in participation, e.g. 'resuscitation/CPR' in emergency situation
+    |
+    prop function : Terminology_term «splash-lang.ParticipationFunction» ;
+
+    |
+    | Time at which participation occurred. If `duration` is recorded, understood as start time.
+    |
+    prop time : Date_time ;
+
+    |
+    | Duration of participation.
+    |
+    prop duration :? Duration ;
+
+    |
+    | Performer.
+    |
+    prop performer : Entity_ref_node ;
+
+end
+
+
+
+

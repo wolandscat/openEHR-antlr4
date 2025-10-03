@@ -1,0 +1,56 @@
+|
+| 	description: Event_context class
+| 	keywords:    SPLASH representation model
+| 	author:      Thomas Beale <thomas.beale@splash-lang.org>
+| 	support:     https://splash-lang.atlassian.net/issues/
+| 	copyright:   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+| 	license:     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+import org.splash-lang.foundation.representation ;
+
+
+|
+| Commit container for one collection of statements, for one encounter between a 
+| subject and a care provision system.
+|
+abstract class Event_context 
+    is_a Info_item
+
+feature_group("access")
+
+    |
+    | Facility.
+    |
+    prop facility :? Entity_ref_node ;
+
+    |
+    | Physical location, e.g. 'ward 3'.
+    |
+    prop location :? String ;
+
+    |
+    | Start time.
+    |
+    prop start_time : Date_time ;
+
+    |
+    | End time.
+    |
+    prop end_time :? Date_time ;
+
+    |
+    | Participations.
+    |
+    prop participations :? Participation [*; list] ;
+
+    |
+    | Other context.
+    |
+    prop other_context :? Node [*; list] ;
+
+end
+
+
+
+
