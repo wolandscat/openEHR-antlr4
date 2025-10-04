@@ -14,7 +14,7 @@ class Space
 
 feature_group("access")
 
-    prop parts :? Space [*; list] ;
+    prop parts :? list<Space> ;
 
 end
 

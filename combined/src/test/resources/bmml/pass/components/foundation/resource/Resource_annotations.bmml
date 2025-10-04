@@ -22,7 +22,7 @@ feature_group("access")
     | Documentation item, keyed by path and then element key
     | TODO: fix the representation here - either a tree, or break out to nest maps
     |
-    prop documentation : String:String [*; map] ;
+    prop documentation : map<String, String> ;
 
 end
 

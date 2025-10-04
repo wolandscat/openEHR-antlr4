@@ -12,7 +12,7 @@ abstract class Entity
 
 feature_group("access")
 
-    prop relationships :? Entity_relationship_group [*; list] ;
+    prop relationships :? list<Entity_relationship_group> ;
 
 end
 

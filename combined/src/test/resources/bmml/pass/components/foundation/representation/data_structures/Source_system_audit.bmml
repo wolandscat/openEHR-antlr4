@@ -48,7 +48,7 @@ feature_group("infrastructure")
     |
     | Other details.
     |
-    prop other_details :? Node [*] ;
+    prop other_details :? list<Node> ;
 
 end
 

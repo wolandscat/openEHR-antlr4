@@ -21,7 +21,7 @@ feature_group ("values")
 
     completed ("completed");
 
-    discontinued ("discontinued");
+    abandoned ("abandoned");
 
     cancelled ("cancelled");
 

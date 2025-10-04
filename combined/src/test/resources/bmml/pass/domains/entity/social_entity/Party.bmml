@@ -12,13 +12,13 @@ abstract class Party
 
 feature_group("access")
 
-    prop identities : Node [*; list] ;
+    prop identities : list<Node> ;
 
-    prop location_addresses :? Node [*; list] ;
+    prop location_addresses :? list<Node> ;
 
-    prop comms_addresses :? Node [*; list] ;
+    prop comms_addresses :? list<Node> ;
 
-    prop accountability_types :? Node [*; list] ;
+    prop accountability_types :? list<Node> ;
     
 end
 

@@ -14,7 +14,7 @@ feature_group("access")
 
     prop performer : Object_ref ;
 
-    prop capabilities :? Node [*; list] ;
+    prop capabilities :? list<Node> ;
 
 end
 

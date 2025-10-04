@@ -31,12 +31,12 @@ feature_group("access")
     |
     | Keywords.
     |
-    prop keywords :? String [*; list] ;
+    prop keywords :? list<String> ;
 
     |
     | Other details
     |
-    prop other_details :? String:String [*; map] ;
+    prop other_details :? map<String, String> ;
 
     |
     | Description of the use of the resource.
@@ -52,12 +52,12 @@ feature_group("access")
     |
     | Original resource URI.
     |
-    prop original_resource_uri :? String:String [*; map] ;
+    prop original_resource_uri :? map<String, String> ;
 
     |
     | Other details
     |
-    prop other_details :? String:String [*; map] ;
+    prop other_details :? map<String, String> ;
 
 end
 

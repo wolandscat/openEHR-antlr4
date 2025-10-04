@@ -17,7 +17,7 @@ feature_group("access")
 
     prop alternate_text :? String;
 
-    prop data : Byte [*; array];
+    prop data : array<Byte>;
 
     prop media_type : Terminology_code «iana.media-types»;
 

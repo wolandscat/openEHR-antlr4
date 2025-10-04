@@ -31,7 +31,7 @@ feature_group("access")
     |
     | TODO: 
     |
-    prop other_details :? Node [*; list] ;
+    prop other_details :? list<Node> ;
 
 end
 

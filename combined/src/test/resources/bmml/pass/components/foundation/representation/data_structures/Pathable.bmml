@@ -19,9 +19,9 @@ feature_group("infrastructure")
     | Return items at a path, assuming it exists. Always returns a container,
     | even if there is only one item.
     |
-    func items_at_path (a_path: String) : Pathable [*; list]
+    func items_at_path (a_path: String) : list<Pathable>
         pre_cond
-            has_item_at_path (a_path: String)
+            has_item_at_path (a_path);
         ;
 
     |

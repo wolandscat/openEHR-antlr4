@@ -10,5 +10,12 @@
 abstract class Aggregate_agent
     is_a Agent
 
+feature_group("access")
+
+    |
+    | Extract members, including recursively, from `relationships`.
+    |
+    func members : list<Individual_agent> ;
+
 end
 

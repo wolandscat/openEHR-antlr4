@@ -12,9 +12,9 @@ abstract class Agent
 
 feature_group("access")
 
-    prop personas :? Persona [*; list] ;
+    prop personas :? list<Persona> ;
 
-    prop languages :? Node [*; list] ;
+    prop languages :? list<Node> ;
 
 end
 

@@ -16,6 +16,6 @@ feature_group("access")
 
     prop type : Terminology_term ;
 
-    prop members : Object_ref [*; list] ;
+    prop members : list<Object_ref> ;
 
 end

@@ -18,9 +18,9 @@ feature_group("access")
 
     prop duration :? Duration ;
 
-    prop cost_data :? Node [*; list] ;
+    prop cost_data :? list<Node> ;
 
-    prop description : Node [*; list] ;
+    prop description : list<Node> ;
 
 end
 

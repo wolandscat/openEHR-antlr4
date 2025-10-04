@@ -12,11 +12,11 @@ abstract class Entity_element
 
 feature_group("access")
 			
-    prop identifiers :? Node [*; list] ;
+    prop identifiers :? list<Node> ;
 
-    prop system_identifiers :? Node [*; list] ;
+    prop system_identifiers :? list<Node> ;
 
-    prop other_details :? Node [*; list] ;
+    prop other_details :? list<Node> ;
 
 end
 

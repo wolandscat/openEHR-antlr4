@@ -21,7 +21,7 @@ feature_group("access")
     |
     | Details of the original author.
     |
-    prop original_author : String:String [*; map] ;
+    prop original_author : map<String, String> ;
 
     |
     | Original namespace.
@@ -37,12 +37,12 @@ feature_group("access")
     | Other contributors, each in the form of a String, with the standard embedded
     | email or web address, e.g. `"Marcus Aurelius <marcus@meditations.org>"`.
     |
-    prop other_contributors :? String [*; list] ;
+    prop other_contributors :? list<String> ;
 
     |
     | Other details
     |
-    prop other_details :? String:String [*; map] ;
+    prop other_details :? map<String, String> ;
 
     |
     | Current custodian namespace.
@@ -77,17 +77,17 @@ feature_group("access")
     |
     | Copyright IP acknowledgements.
     |
-    prop ip_acknowledgements :? String:String [*; map] ;
+    prop ip_acknowledgements :? map<String, String> ;
 
     |
     | References for citations within `description`.
     |
-    prop references :? String:String [*; map] ;
+    prop references :? map<String, String> ;
 
     |
     | Details of conversion, if applicable, from other artefact and/or format.
     |
-    prop conversion_details :? String:String [*; map] ;
+    prop conversion_details :? map<String, String> ;
 
     |
     | Reference to a parent resource, if applicable.
@@ -97,7 +97,7 @@ feature_group("access")
     |
     | Details of description, keyed by language
     |
-    prop details :? String:Resource_description_item [*; map] ;
+    prop details :? map<String, Resource_description_item> ;
 
 end
 

@@ -41,7 +41,7 @@ feature_group("access")
     |
     | Translations of the resource, keyed by language code
     |
-    prop translations :? String:Translation_details [*; map] ;
+    prop translations :? map<String, Translation_details> ;
 
 end
 

@@ -42,12 +42,12 @@ feature_group("access")
     |
     | Participations.
     |
-    prop participations :? Participation [*; list] ;
+    prop participations :? list<Participation> ;
 
     |
     | Other context.
     |
-    prop other_context :? Node [*; list] ;
+    prop other_context :? list<Node> ;
 
 end
 

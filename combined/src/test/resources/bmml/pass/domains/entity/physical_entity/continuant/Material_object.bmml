@@ -14,7 +14,7 @@ abstract class Material_object
 
 feature_group("access")
 
-    prop lot_information :? Node [*; list] ;
+    prop lot_information :? list<Node> ;
 
 end
 

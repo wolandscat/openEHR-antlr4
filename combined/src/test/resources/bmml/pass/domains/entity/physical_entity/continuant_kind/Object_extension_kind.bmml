@@ -14,7 +14,7 @@ abstract class Object_extension_kind
 
 feature_group("access")
 
-    prop parts : Object_extension_kind [*; list] ;
+    prop parts : list<Object_extension_kind> ;
 
 end
 

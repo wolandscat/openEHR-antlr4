@@ -16,11 +16,11 @@ feature_group("access")
 
     prop identifier : Object_ref ;
 
-    prop other_identifiers :? Node [*; list] ;
+    prop other_identifiers :? list<Node> ;
 
-    prop individual_attributes :? Node [*; list] ;
+    prop individual_attributes :? list<Node> ;
 
-    prop use_details :? Node [*; list] ;
+    prop use_details :? list<Node> ;
 
 end
 

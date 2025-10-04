@@ -18,7 +18,7 @@ class Occurrence_pattern
 
 feature_group("access")
 
-    prop occurrence_times : Occurrence_times_specifier [*];
+    prop occurrence_times : list<Occurrence_times_specifier>;
 
     prop total_event_count :? Integer;
 

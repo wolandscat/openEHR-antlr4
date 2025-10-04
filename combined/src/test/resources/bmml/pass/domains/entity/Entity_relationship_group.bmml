@@ -12,7 +12,7 @@ abstract class Entity_relationship_group
 
 feature_group("access")
 
-    prop members :? Object_ref [*; list] ;
+    prop members :? list<Object_ref> ;
 
 end
 

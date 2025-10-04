@@ -10,6 +10,13 @@
 abstract class Org_entity
     is_a Aggregate_agent
 
+feature_group("access")
+
+    |
+    | Extract sub-ordinate org units from `relationships`
+    |
+    func units : list<Org_unit> ;
+
 end
 
 

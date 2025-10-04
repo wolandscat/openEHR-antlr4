@@ -15,17 +15,17 @@ feature_group("access")
     |
     | TODO: 
     |
-    prop folders :? Folder [*; list] ;
+    prop folders :? list<Folder> ;
 
     |
     | TODO: 
     |
-    prop items :? Object_ref [*; list] ;
+    prop items :? list<Object_ref> ;
 
     |
     | TODO: 
     |
-    prop details :? Node [*; list] ;
+    prop details :? list<Node> ;
 
 end
 

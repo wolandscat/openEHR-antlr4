@@ -17,7 +17,7 @@ feature_group("access")
     |
     | History of specific occurrences
     |
-    prop history :? Occurrence [*; list];
+    prop history :? list<Occurrence>;
 
     |
     | Pattern representation of occurrences

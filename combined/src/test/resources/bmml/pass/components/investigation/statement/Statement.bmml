@@ -41,7 +41,7 @@ feature_group("access")
     |
     | Other participations involved in the acts creating this Statement.
     |
-    prop other_participations :? Participation [*; list] ;
+    prop other_participations :? list<Participation> ;
 
     |
     | Time of occurrence of the relevant real world process entity.

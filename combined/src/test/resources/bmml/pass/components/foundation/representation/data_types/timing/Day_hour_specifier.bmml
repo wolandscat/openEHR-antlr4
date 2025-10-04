@@ -46,7 +46,7 @@ feature_group("access")
     |
     prop cycle_pattern : String;
 
-    prop times_of_day : Hour_specifier [*; list];
+    prop times_of_day : list<Hour_specifier>;
 
 end
 

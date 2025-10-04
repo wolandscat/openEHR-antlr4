@@ -21,7 +21,7 @@ feature_group("access")
 
     prop null_reason :? Text ;
 
-    prop items : Node[*; list] ;
+    prop items : list<Node> ;
 
 end
 

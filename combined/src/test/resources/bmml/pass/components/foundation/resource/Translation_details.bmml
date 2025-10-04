@@ -26,7 +26,7 @@ feature_group("access")
     |
     | Details of the author.
     |
-    prop author : String:String [*; map] ;
+    prop author : map<String, String> ;
 
     |
     | Translator's accreditation.
@@ -42,12 +42,12 @@ feature_group("access")
     |
     | Other contributors to the translation.
     |
-    prop other_contributors :? String [*; list] ;
+    prop other_contributors :? list<String> ;
 
     |
     | Other details
     |
-    prop other_details :? String:String [*; map] ;
+    prop other_details :? map<String, String> ;
 
 end
 

@@ -14,9 +14,9 @@ feature_group("access")
 
     prop identifier : Rwe_id_ref ;
 
-    prop external_identifiers :? Node [*; list] ;
+    prop external_identifiers :? list<Node> ;
 
-    prop service_events :? Service_event [*; list] ;
+    prop service_events :? list<Service_event> ;
 
     prop lifecycle_state : Encounter_state ;
 

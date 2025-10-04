@@ -14,7 +14,7 @@ abstract class Entity_kind
 
 feature_group("access")
 
-    prop items : Node [*; list] ;
+    prop items : list<Node> ;
 
 end
 

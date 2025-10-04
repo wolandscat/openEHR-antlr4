@@ -22,7 +22,7 @@ feature_group("access")
 
     prop date_upper :? Date;
 
-    prop times_of_day :? Hour_specifier [*];
+    prop times_of_day :? list<Hour_specifier>;
 
 end
 

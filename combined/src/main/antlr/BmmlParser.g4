@@ -68,7 +68,7 @@ bmmFunctionDecl: SYM_FUNCTION LC_ID bmmArgsDecl? ( ':' | ':?' ) typeSpecifier ;
 
 // nullable args not allowed - use overloads
 bmmArgsDecl: '(' bmmArgDecl ( ',' bmmArgDecl )* ')' ;
-bmmArgDecl: UC_ID ':' typeSpecifier ;
+bmmArgDecl: LC_ID ':' typeSpecifier ;
 
 bmmPrecondBlock: SYM_PRECOND ( elBooleanExpr ';' )+ ;
 bmmPostcondBlock: SYM_POSTCOND ( elBooleanExpr ';' )+ ;
@@ -81,12 +81,13 @@ bmmInvariantDecl: SYM_INVARIANT ( assertion ';' ) + ;
 
 // ------------------------------ types -----------------------------------
 
-typeSpecifier: typeId bmmMultiplicity? bmmValueConstraint? ;
+typeSpecifier: ( typeValueConstrained | typePlusMultiplicity ) ;
+typeValueConstrained: typeId bmmValueConstraint? ;
+typePlusMultiplicity: typePlusMultiplicitySingle | typePlusMultiplicityMap ;
 
-// need to check the integer = 0 or 1 only
-bmmMultiplicity: '[' ( bmmMultiplicityLower '..' )? '*' bmmMultiplicityMod? ']' ;
-bmmMultiplicityLower: INTEGER ;
-bmmMultiplicityMod: SYM_MULTIPLICITY_LIST | SYM_MULTIPLICITY_SET | SYM_MULTIPLICITY_ARRAY | SYM_MULTIPLICITY_MAP ;
+typePlusMultiplicitySingle: ( SYM_MULTIPLICITY_SET | SYM_MULTIPLICITY_ARRAY | SYM_MULTIPLICITY_LIST ) typeValueConstrained '>' ;
+typePlusMultiplicityMap: SYM_MULTIPLICITY_MAP typeValueConstrained ',' typeValueConstrained '>' ;
+
 bmmValueConstraint: SYM_LEFT_GUILLEMET bmmNamespaceId SYM_RIGHT_GUILLEMET ;
 
 typeDecl: UC_ID ( '<' typeConstrained ( ',' typeConstrained )* '>' )? ;

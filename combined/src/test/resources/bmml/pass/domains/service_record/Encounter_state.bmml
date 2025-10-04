@@ -23,7 +23,7 @@ feature_group ("values")
 
     discharged ("discharged");
 
-    discontinued ("discontinued");
+    abandoned ("abandoned");
 
     cancelled ("cancelled");
 

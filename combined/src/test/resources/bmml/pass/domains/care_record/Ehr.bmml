@@ -25,32 +25,32 @@ feature_group("access")
     |
     | TODO: 
     |
-    prop contributions : Object_ref [*; list] ;
+    prop contributions : list<Object_ref> ;
 
     |
     | TODO: 
     |
-    prop folders :? Object_ref [*; list] ;
+    prop folders :? list<Object_ref> ;
 
     |
     | TODO: 
     |
-    prop subject_state : Object_ref [*; list] ;
+    prop subject_state : list<Object_ref> ;
 
     |
     | TODO: 
     |
-    prop subject_events : Object_ref [*; list] ;
+    prop subject_events : list<Object_ref> ;
 
     |
     | TODO: 
     |
-    prop subject_plans : Object_ref [*; list] ;
+    prop subject_plans : list<Object_ref> ;
 
     |
     | TODO: 
     |
-    prop subject_processes : Object_ref [*; list] ;
+    prop subject_processes : list<Object_ref> ;
 
     |
     | TODO: 

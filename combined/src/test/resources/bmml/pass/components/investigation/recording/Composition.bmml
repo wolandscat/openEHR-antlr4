@@ -52,7 +52,7 @@ feature_group("access")
     |
     | Translations of the resource, keyed by language code
     |
-    prop content : Content_item [*; list] ;
+    prop content : list<Content_item> ;
 
 end
 

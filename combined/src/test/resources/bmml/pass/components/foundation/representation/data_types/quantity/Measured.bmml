@@ -17,7 +17,7 @@ feature_group("access")
 
     prop value : V;
 
-    prop reference_ranges :? Reference_range<V> [*; list];
+    prop reference_ranges :? list<Reference_range<V>>;
 
 feature_group("runtime")
 

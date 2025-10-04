@@ -23,7 +23,7 @@ feature_group("access")
     |
     | Information items captured in this Event
     |
-    prop items : Node [*; list] ;
+    prop items : list<Node> ;
 
 end
 
