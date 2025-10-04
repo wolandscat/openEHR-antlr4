@@ -12,12 +12,11 @@ abstract class Entity_relationship
 
 feature_group("access")
 
-    prop source : Object_ref
+    prop source : Object_ref;
 
-    prop target : Object_ref
+    prop target : Object_ref;
 
-    prop time_validity :? Interval <Date>
-				is_im_runtime = <True>
+    prop time_validity :? Interval <Date>;
 
 end
 

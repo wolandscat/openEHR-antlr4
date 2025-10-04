@@ -29,9 +29,10 @@ feature_group("access")
     | ** Friday: `"Fr"`;
     | ** Saturday: `"Sa"`;
     | ** Sunday: `"Su"`.
-    | * days in month: a string of the form "month: 01, 14, ..."` where the part following the colon is a comma-separated list of items which can be:
-    | ** 2-digit day numbers from "01" to" 31";
-    | ** keywords: `"first"`, `"last"`, `"second-last"`, etc.
+    | * days in month (form 1): a string of the form "month: 01, 14, ..."` where the part following the colon is a comma-separated list of items which can be:
+    | ** 2-digit numbers from "01" - "31" indicating day in month;
+    | * days in month (form 2): a string of the form "month: xxx, yyy, ..."` where the part following the colon is a comma-separated list of:
+    | ** keywords: `"first"`, `"last"`, `"second-last"`.
     |
     | The string value is treated as case-insensitive, and whitespace is ignored. Consequently, mixed case and spacing can be used to improve human-readability.
     |
@@ -45,7 +46,7 @@ feature_group("access")
     |
     prop cycle_pattern : String;
 
-    prop times_of_day : Hour_specifier [*; ordered];
+    prop times_of_day : Hour_specifier [*; list];
 
 end
 

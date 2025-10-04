@@ -95,9 +95,9 @@ feature_group("access")
     prop parent_resource :? Authored_resource ;
 
     |
-    | Details of description.
+    | Details of description, keyed by language
     |
-    prop details :? Resource_description_item:String [*; map] ;
+    prop details :? String:Resource_description_item [*; map] ;
 
 end
 

@@ -22,7 +22,8 @@ feature_group("access")
     prop type : Ratio_kind;
 
     func effective_value : Decimal
-        Result := numerator / numerator;
+        do
+            Result := numerator / numerator;
         ;
 
 end

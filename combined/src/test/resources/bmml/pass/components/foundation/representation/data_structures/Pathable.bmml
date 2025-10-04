@@ -20,7 +20,8 @@ feature_group("infrastructure")
     | even if there is only one item.
     |
     func items_at_path (a_path: String) : Pathable [*; list]
-        pre: has_item_at_path (a_path: String)
+        pre_cond
+            has_item_at_path (a_path: String)
         ;
 
     |

@@ -13,7 +13,7 @@ import ElParser;
 
 // ========================== BMML Classes ==========================
 
-bmmModuleDef: bmmModuleImport+ ( bmmClassDecl | bmmEnumDecl ) SYM_END EOF ;
+bmmModuleDef: bmmModuleImport* ( bmmClassDecl | bmmEnumDecl ) SYM_END EOF ;
 
 bmmModuleImport: SYM_IMPORT bmmNamespaceId ';' ;
 
@@ -60,15 +60,20 @@ bmmPropertyDecl: SYM_PROPERTY LC_ID ( ':' | ':?' ) typeSpecifier ;
 
 // ------------------------------ routines -----------------------------------
 
-bmmRoutineDecl: SYM_ABSTRACT? ( bmmProcedureDecl | bmmFunctionDecl ) ;
+bmmRoutineDecl: SYM_ABSTRACT? ( bmmProcedureDecl | bmmFunctionDecl ) bmmPrecondBlock? bmmStatementBlock? bmmPostcondBlock? ;
 
-bmmProcedureDecl: SYM_PROCEDURE LC_ID bmmArgsDecl? statement* ;
+bmmProcedureDecl: SYM_PROCEDURE LC_ID bmmArgsDecl? ;
 
-bmmFunctionDecl: SYM_FUNCTION LC_ID bmmArgsDecl? ( ':' | ':?' ) typeSpecifier statement* ;
+bmmFunctionDecl: SYM_FUNCTION LC_ID bmmArgsDecl? ( ':' | ':?' ) typeSpecifier ;
 
 // nullable args not allowed - use overloads
 bmmArgsDecl: '(' bmmArgDecl ( ',' bmmArgDecl )* ')' ;
 bmmArgDecl: UC_ID ':' typeSpecifier ;
+
+bmmPrecondBlock: SYM_PRECOND ( elBooleanExpr ';' )+ ;
+bmmPostcondBlock: SYM_POSTCOND ( elBooleanExpr ';' )+ ;
+
+bmmStatementBlock: SYM_DO statement+;
 
 // ------------------------------ invariants -----------------------------------
 
@@ -79,8 +84,9 @@ bmmInvariantDecl: SYM_INVARIANT ( assertion ';' ) + ;
 typeSpecifier: typeId bmmMultiplicity? bmmValueConstraint? ;
 
 // need to check the integer = 0 or 1 only
-bmmMultiplicity: '[' ( bmmMultiplicityLower '..' )? '*' ( multiplicityMod multiplicityMod? )? ']' ;
+bmmMultiplicity: '[' ( bmmMultiplicityLower '..' )? '*' bmmMultiplicityMod? ']' ;
 bmmMultiplicityLower: INTEGER ;
+bmmMultiplicityMod: SYM_MULTIPLICITY_LIST | SYM_MULTIPLICITY_SET | SYM_MULTIPLICITY_ARRAY | SYM_MULTIPLICITY_MAP ;
 bmmValueConstraint: SYM_LEFT_GUILLEMET bmmNamespaceId SYM_RIGHT_GUILLEMET ;
 
 typeDecl: UC_ID ( '<' typeConstrained ( ',' typeConstrained )* '>' )? ;

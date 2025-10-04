@@ -10,7 +10,9 @@
 class Party_relationship
     is_a Entity_relationship
 
-    prop scoper : Entity_ref_node
+feature_group("access")
+
+    prop scoper : Entity_ref_node ;
 
 end
 

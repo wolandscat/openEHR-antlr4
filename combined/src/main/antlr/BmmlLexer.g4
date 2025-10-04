@@ -37,6 +37,9 @@ SYM_PROPERTY  : 'prop' ;
 SYM_FUNCTION  : 'func' ;
 SYM_PROCEDURE : 'proc' ;
 SYM_DEFERRED  : 'deferred' ;
+SYM_PRECOND   : 'precond' ;
+SYM_POSTCOND  : 'postcond' ;
+SYM_DO        : 'do' ;
 
 SYM_FEATURE_GROUP : 'feature_group' ;
 SYM_INVARIANT : 'invariant';
@@ -44,4 +47,9 @@ SYM_END: 'end' ;
 
 
 // --------- symbols ----------
+SYM_MULTIPLICITY_LIST: ';'[ ]*'list' ;
+SYM_MULTIPLICITY_SET : ';'[ ]*'set' ;
+SYM_MULTIPLICITY_ARRAY : ';'[ ]*'array' ;
+SYM_MULTIPLICITY_MAP : ';'[ ]*'map' ;
+
 SYM_NULLABLE_TYPE_DECL: ':?' ;

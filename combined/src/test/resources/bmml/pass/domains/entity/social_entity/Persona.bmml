@@ -12,7 +12,7 @@ class Persona
 
 feature_group("access")
 
-    prop performer : Object_ref
+    prop performer : Object_ref ;
 
     prop capabilities :? Node [*; list] ;
 
