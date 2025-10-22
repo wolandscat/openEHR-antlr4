@@ -23,7 +23,7 @@ subprojects {
 
     ext.reflectionsVersion = '0.10.2'
     ext.antlrVersion = '4.13.1'
-    ext.jUnitVersion = '6.0.0'
+    ext.jUnitVersion = '5.13.1'
     ext.slf4jVersion = '2.0.17'
     ext.guavaVersion = '33.4.8'
     ext.commonsIoVersion = '2.20.0'
@@ -67,7 +67,7 @@ subprojects {
 
     compileJava {
         dependsOn generateGrammarSource
-        source generateGrammarSource.outputs.files, sourceSets.main.java
+        source sourceSets.main.java
         options.encoding = 'UTF-8'
     }
 
