@@ -1,0 +1,17 @@
+|
+|    description:: Observation type representing a one-off (point in time) direct measurement of a 
+|                  continuant e.g. skin colour or event e.g. loss of consciousness. The moment when
+|                  the measurement is made is the same time as when the observation result is asserted.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+class Point_measurement
+    is_a Adhoc_observation
+
+
+end
+

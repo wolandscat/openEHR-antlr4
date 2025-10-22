@@ -1,5 +1,5 @@
 |
-|    description:: Xxxxx class
+|    description:: Class representing relationship between two Entity instances.
 |    keywords::    SPLASH representation model
 |    author::      Thomas Beale <thomas.beale@splash-lang.org>
 |    support::     https://splash-lang.atlassian.net/issues/
@@ -7,15 +7,26 @@
 |    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-abstract class Entity_relationship
+class Entity_relationship
     is_a Entity_element
 
 feature_group("access")
 
+    |
+    | Source entity of this relationship.
+    |
     prop source : Object_ref;
 
+    |
+    | Target entity of this relationship.
+    |
     prop target : Object_ref;
 
+    |
+    | Time validity of this relationship.
+    | TODO: either convert to from_time & until_time, or something broader, e.g. rules
+    | or else remove entirely. Need to consider in context of relationship groups.
+    |
     prop time_validity :? Interval <Date>;
 
 end

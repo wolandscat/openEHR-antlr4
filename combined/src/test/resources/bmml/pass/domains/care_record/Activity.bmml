@@ -1,6 +1,5 @@
 |
-|    description:: Container for instances of a logical multiple-valued relationship, e.g.
-|                  'employees' or similar
+|    description:: Part of an Order specifying a specific activity.
 |    keywords::    SPLASH representation model
 |    author::      Thomas Beale <thomas.beale@splash-lang.org>
 |    support::     https://splash-lang.atlassian.net/issues/
@@ -8,15 +7,20 @@
 |    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-class Entity_relationship_group
-    is_a Info_item
+abstract class Activity
+    is_a Locatable
 
-feature_group("access")
+feature_group ("access")
 
     |
-    | Members of this group, expressed as references to the target objects.
+    | Structured description of the Activity.
     |
-    prop members :? list<Object_ref> ;
+    prop description : list<Node> ;
+	
+    |
+    | Computable representation of timing information.
+    |
+    prop timing :? Timing ;
 
 end
 

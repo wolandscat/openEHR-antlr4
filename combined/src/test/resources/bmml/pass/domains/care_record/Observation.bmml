@@ -1,6 +1,5 @@
 |
-|    description:: Container for instances of a logical multiple-valued relationship, e.g.
-|                  'employees' or similar
+|    description:: Observation class
 |    keywords::    SPLASH representation model
 |    author::      Thomas Beale <thomas.beale@splash-lang.org>
 |    support::     https://splash-lang.atlassian.net/issues/
@@ -8,15 +7,8 @@
 |    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 |
 
-class Entity_relationship_group
-    is_a Info_item
-
-feature_group("access")
-
-    |
-    | Members of this group, expressed as references to the target objects.
-    |
-    prop members :? list<Object_ref> ;
+abstract class Observation
+    is_a Statement
 
 end
 

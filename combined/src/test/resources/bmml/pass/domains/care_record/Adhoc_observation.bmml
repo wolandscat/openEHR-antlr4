@@ -1,0 +1,27 @@
+|
+|    description:: Adhoc_observation class, representing Observations expressed as an interpretation
+|                  of raw data.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+abstract class Adhoc_observation
+    is_a Observation
+
+feature_group ("access")
+
+    |
+    | Focal data of the Observation.
+    |
+    prop data : list<Node> ;
+
+    |
+    | State of the subject, if applicable.
+    |
+    prop state :? list<Node> ;
+
+end
+

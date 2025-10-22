@@ -1,0 +1,33 @@
+|
+|    description:: Type of Observation used to express a time-series of one or more measurement events
+|                  within a measurement period.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+class Time_series_measurement
+    is_a Observation
+
+feature_group ("access")
+
+    |
+    |
+    |
+    prop data: list<Event> ;
+
+    |
+    |
+    |
+    prop state: list<Event> ;
+
+    |
+    |
+    |
+    prop duration: Duration ;
+
+
+end
+

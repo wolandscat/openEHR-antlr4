@@ -1,0 +1,54 @@
+|
+|    description:: Instruction state machine transition names.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+
+enumeration Instruction_execution_transition
+    base_type String
+
+feature_group ("values")
+
+    initiate ("initiate");
+
+    start ("start");
+
+    schedule ("schedule");
+
+    plan_step ("plan_step");
+
+    cancel ("cancel");
+
+    do ("do");
+
+    resume ("resume");
+
+    suspend ("suspend");
+
+    suspended_step ("suspended_step");
+
+    active_step ("active_step");
+
+    scheduled_step ("scheduled_step");
+
+    postponed_step ("postponed_step");
+
+    abort ("abort");
+
+    restore ("restore");
+
+    postpone ("postpone");
+
+    time_out ("time_out");
+
+    notify_completed ("notify_completed");
+
+    notify_aborted ("notify_aborted");
+
+
+end
+

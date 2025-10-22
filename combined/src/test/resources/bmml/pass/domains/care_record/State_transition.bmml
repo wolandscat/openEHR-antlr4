@@ -1,0 +1,36 @@
+|
+|    description:: Representation of a state machine transition due to an Action.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+abstract class State_transition
+    is_a Locatable
+
+feature_group ("access")
+
+    |
+    | Current (post-transition) state, i.e. resulting from the Action.
+    |
+    prop current_state : Instruction_execution_state ;
+
+    |
+    | Transition that occurred.
+    |
+	prop transition : Instruction_execution_transition ;
+
+    |
+    | Coded careflow step, if applicable.
+    |
+    prop careflow_step :? Terminology_term ;
+
+    |
+    | Optional reason(s).
+    |
+	prop reason :? list <Text> ;
+
+end
+

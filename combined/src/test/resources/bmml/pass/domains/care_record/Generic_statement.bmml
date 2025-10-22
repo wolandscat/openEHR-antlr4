@@ -1,0 +1,36 @@
+|
+|    description:: Entry subtype representing a performed Action.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+abstract class Generic_statement
+    is_a Care_statement
+
+feature_group ("access")
+
+    |
+    | Structured description of the Activity.
+    |
+    prop activity_id : String ;
+	
+    |
+    | Optional duration of the Activity.
+    |
+    prop duration :? Duration ;
+
+	|
+    | Structured description of the Action.
+    |
+    prop description : list<Node> ;
+
+	|
+    | Transition in the state machine of the Order achieved by this Action.
+    |
+    prop state_transition :? State_transition ;
+
+end
+

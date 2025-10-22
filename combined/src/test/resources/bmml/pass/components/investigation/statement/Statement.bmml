@@ -19,7 +19,8 @@ abstract class Statement
 feature_group("access")
 
     |
-    | Uuid of this Statement.
+    | Uuid of this Statement. Use UUID7 or other variant form that starts with time, to 
+	| ensure coherent indexing.
     |
     prop uid : Uuid ;
 
@@ -29,7 +30,7 @@ feature_group("access")
     prop language :? Terminology_code «iso.iso_639-1» ;
 
     |
-    | Subject of this Statement.
+    | Subject of this Statement, i.e. subject of investigation. Usually a patient.
     |
     prop subject : Entity_ref_node ;
 

@@ -15,13 +15,13 @@ class Proportion
 
 feature_group("access")
 
-    prop numerator : Quantity;
+    prop numerator : Quantity ;
 
-    prop denominator : Quantity;
+    prop denominator : Quantity ;
 
     func effective_value : Decimal
         do
-            Result := numerator.magnitude / numerator.magnitude;
+            Result := numerator.magnitude / numerator.magnitude ;
         ;
 end
 

@@ -1,0 +1,26 @@
+|
+|    description:: Questionnaire_response class, representing response to a structured questionnaire.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+class Questionnaire_response
+    is_a Observation
+
+feature_group ("access")
+
+    prop questionnaire_identifier : String ;
+
+    prop questionnaire_title : Text ;
+
+    prop questionnaire_version : String ;
+
+    prop completion_status : Task_status ;
+
+    prop data: list<Node> ;
+
+end
+

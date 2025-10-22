@@ -1,0 +1,26 @@
+|
+|    description:: Observation type representing Observations expressed as an interpretation of raw data.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+class Interpreted_observation
+    is_a Adhoc_observation
+
+feature_group ("access")
+
+    |
+    | Time of generation of result, i.e. by process / staff / org responsible for doing so.
+    |
+    prop result_time: Date_time ;
+
+    |
+    | Optional reference to original raw data
+    |
+    prop raw_data :? list<Node> ;
+
+end
+

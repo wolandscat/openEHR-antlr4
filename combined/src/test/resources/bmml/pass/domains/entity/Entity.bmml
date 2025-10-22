@@ -13,7 +13,8 @@ abstract class Entity
 feature_group("access")
 
     |
-    | Outgoing relationships of this Entity.
+    | Outgoing relationships of this Entity, grouped by logical relationship type,
+    | e.g. 'employees', 'contractors'.
     |
     prop relationships :? list<Entity_relationship_group> ;
 

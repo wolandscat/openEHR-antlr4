@@ -1,0 +1,24 @@
+|
+|    description:: Entry subtype representing any kind of statement about a care event,
+|                  relating to a subject.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+abstract class Care_statement
+    is_a Statement
+
+feature_group ("access")
+
+	|
+    | Qualifying information relating to the focal items of the statement. Qualifiers
+    | are non meaning-modifying, i.e. not required for correct clinical interpretation
+    | of the focal data.
+    |
+    prop qualifiers :? list<Node> ;
+
+end
+

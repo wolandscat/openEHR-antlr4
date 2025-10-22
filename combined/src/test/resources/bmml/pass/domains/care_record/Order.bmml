@@ -1,0 +1,31 @@
+|
+|    description:: Entry subtype representing an Order.
+|    keywords::    SPLASH representation model
+|    author::      Thomas Beale <thomas.beale@splash-lang.org>
+|    support::     https://splash-lang.atlassian.net/issues/
+|    copyright::   Copyright (c) 2025- SPLASHFORM <https://www.splash-lang.org>
+|    license::     Apache 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+|
+
+abstract class Order
+    is_a Care_statement
+
+feature_group ("access")
+
+    |
+    | Focal data of the Observation.
+    |
+    prop narrative : Text ;
+
+    |
+    | Optional expiry for this Order.
+    |
+	prop expiry_time :? Date_time ;
+	
+    |
+    | Performable activities in this Order.
+    |
+    prop activities : list<Activity> ;
+
+end
+

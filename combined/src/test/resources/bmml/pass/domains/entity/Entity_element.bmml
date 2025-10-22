@@ -1,5 +1,5 @@
 |
-|    description:: Xxxxx class
+|    description:: Common properties of any element of the Entity meta-model.
 |    keywords::    SPLASH representation model
 |    author::      Thomas Beale <thomas.beale@splash-lang.org>
 |    support::     https://splash-lang.atlassian.net/issues/
@@ -13,7 +13,9 @@ abstract class Entity_element
 feature_group("access")
 			
     |
-    | Real world identifiers assigned to the current Entity, e.g. in government social security, tax or health registries.
+    | Real world identifiers assigned to the current Entity, e.g. in government social security, 
+    | tax or health registries.
+    | TODO: probably needs to be tightened to a more rigid type
     |
     prop identifiers :? list<Node> ;
 
@@ -22,9 +24,14 @@ feature_group("access")
     | identifies this element in particular external system. For a Person Entity for example, there
     | may be a distinct identifier in one or more other EMR systems that are linked to the
     | current system.
+    | TODO: probably needs to be tightened to a more rigid type
     |
     prop system_identifiers :? list<Node> ;
 
+    |
+    | Other details.
+    | TODO: Analyse properly.
+    |
     prop other_details :? list<Node> ;
 
 end
