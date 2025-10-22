@@ -1,72 +1,85 @@
-repositories {
-    mavenCentral()
+plugins {
+    id 'java'
+    id 'antlr'
 }
 
-wrapper {
-    // gradleVersion = '5.6.4'
-    gradleVersion = '9.1.0'
-
-}
-
-allprojects {
-    version = '0.1.0'
-    group = 'org.openehr'
-    ext.gradleScriptDir = "${rootProject.projectDir}/gradle"
-    tasks.withType(Javadoc) {
-        options.addStringOption('Xdoclint:all', '-quiet')
-    }
-}
-
+group = 'org.openehr.antlr4'
+version = '0.1.0'
 
 subprojects {
     apply plugin: 'java'
     apply plugin: 'antlr'
 
-    sourceCompatibility = '1.11'
-    targetCompatibility = '1.11'
-
-    compileJava.options.encoding = "UTF-8"
-    compileTestJava.options.encoding = "UTF-8"
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
 
     repositories {
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+        gradlePluginPortal()
     }
 
-    ext.antlrVersion = '4.13.1'
     ext.reflectionsVersion = '0.10.2'
+    ext.antlrVersion = '4.13.1'
+    ext.jUnitVersion = '6.0.0'
+    ext.slf4jVersion = '2.0.17'
+    ext.guavaVersion = '33.4.8'
+    ext.commonsIoVersion = '2.20.0'
 
-    generateGrammarSource { //antlr4
-        arguments = ['-encoding', 'utf-8'] + arguments
-        arguments = ['-package', 'org.openehr.antlr4'] + arguments
-    }
-    classes {
-        dependsOn generateGrammarSource
-    }
     dependencies {
-        antlr 'org.antlr:antlr4:4.13.1'
-        api 'org.antlr:antlr4-runtime:4.13.1'
-        api 'org.slf4j:slf4j-api:1.7.36'
+        antlr "org.antlr:antlr4:${antlrVersion}"
+        api "org.antlr:antlr4-runtime:${antlrVersion}"
 
         implementation "org.reflections:reflections:${reflectionsVersion}"
 
-        implementation ('commons-io:commons-io:2.15.1'){
+        implementation ("commons-io:commons-io:${commonsIoVersion}"){
             exclude group: 'commons-logging', module: 'commons-logging'
         }
 
-        implementation 'org.apache.commons:commons-text:1.11.0'
-        implementation 'org.apache.commons:commons-lang3:3.14.0'
+        implementation 'org.apache.commons:commons-text:1.14.0'
+        implementation 'org.apache.commons:commons-lang3:3.18.0'
 
-        implementation 'com.google.guava:guava:33.0.0-jre'
+        implementation "com.google.guava:guava:${guavaVersion}-jre"
 
-        implementation 'org.slf4j:slf4j-simple:1.7.36'
+        api "org.slf4j:slf4j-api:${slf4jVersion}"
+        implementation "org.slf4j:slf4j-simple:${slf4jVersion}"
 
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+        testImplementation "org.junit.jupiter:junit-jupiter-api:${jUnitVersion}"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${jUnitVersion}"
+        testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+    }
 
+    generateGrammarSource {
+        maxHeapSize = "128m"
+        arguments += ['-package', 'org.openehr.antlr4', '-visitor', '-listener']
+        outputDirectory = file("$buildDir/generated-src/antlr/main/org/openehr/antlr4")
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs += file("$buildDir/generated-src/antlr/main")
+            }
+        }
+    }
+
+    compileJava {
+        dependsOn generateGrammarSource
+        source generateGrammarSource.outputs.files, sourceSets.main.java
+        options.encoding = 'UTF-8'
+    }
+
+    clean {
+        delete "$buildDir/generated-src"
     }
 
     test {
         useJUnitPlatform()
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
     }
+
 }
