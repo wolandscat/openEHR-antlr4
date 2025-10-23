@@ -1,0 +1,27 @@
+plugins {
+    id "java-build-conventions"
+}
+
+generateGrammarSource {
+    maxHeapSize = "128m"
+    arguments += ['-package', 'org.openehr.reader_common', '-visitor', '-listener']
+    outputDirectory = file("$buildDir/generated-src/antlr/main/org/openehr/reader_common")
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs += file("$buildDir/generated-src/antlr/main")
+        }
+    }
+}
+
+compileJava {
+    dependsOn generateGrammarSource
+    source sourceSets.main.java
+    options.encoding = 'UTF-8'
+}
+
+clean {
+    delete "$buildDir/generated-src"
+}

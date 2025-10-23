@@ -1,0 +1,32 @@
+plugins {
+    id("java-build-conventions")
+}
+
+dependencies {
+    api project(':reader_common')
+}
+
+generateGrammarSource {
+    maxHeapSize = "128m"
+    arguments += ["-lib", "$projectDir/../reader_common/src/main/antlr".toString()]
+    arguments += ['-package', 'org.openehr.parser_bmml', '-visitor', '-listener']
+    outputDirectory = file("$buildDir/generated-src/antlr/main/org/openehr/parser_bmml")
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs += file("$buildDir/generated-src/antlr/main")
+        }
+    }
+}
+
+compileJava {
+    dependsOn generateGrammarSource
+    source sourceSets.main.java
+    options.encoding = 'UTF-8'
+}
+
+clean {
+    delete "$buildDir/generated-src"
+}

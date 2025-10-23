@@ -4,7 +4,7 @@ Antlr4 grammars for ADL, ODIN, BEL, EL, BMM.
 
 == Overview
 
-The grammars in this project are an attempt to systematise all grammars for openEHR in one place, and using common lexers for common patterns such as identifiers, paths, terminal values and so on. The grammars use modal lexers (example: https://github.com/openEHR/openEHR-antlr4/blob/master/combined/src/main/antlr/Adl2Lexer.g4[ADL2 lexer^]) to handle the multiple formalisms that may appear in e.g. ADL files, CADL blocks within ADL (which may have further embedded ODIN or JSON blocks) and so on.
+The grammars in this project are an attempt to systematise all grammars for openEHR in one place, and using common lexers for common patterns such as identifiers, paths, terminal values and so on. The grammars use modal lexers (example: https://github.com/openEHR/openEHR-antlr4/blob/master/reader_common/src/main/antlr/Adl2Lexer.g4[ADL2 lexer^]) to handle the multiple formalisms that may appear in e.g. ADL files, CADL blocks within ADL (which may have further embedded ODIN or JSON blocks) and so on.
 
 It is eventually intended to be used as the official source for grammars for various specifications, i.e. replacing existing grammars in the https://github.com/openEHR/adl-antlr[adl-antlr^] repository.
 
@@ -14,11 +14,11 @@ This is a development repository containing Antlr4 grammars for most of the lang
 
 == What's in the project?
 
-The grammars are maintained under the `combined/src/main/antlr` directory. The other modules may be ignored for the moment.
+The grammars are maintained under the `reader_common/src/main/antlr` directory. The other modules may be ignored for the moment.
 
 == Testing
 
-A Java test program is in `/combined/src/test/java/org/openehr/adlReader`, and test files in `/combined/src/test/resources` .
+A Java test program is in `/reader_common/src/test/java/org/openehr/adlReader`, and test files in `/reader_common/src/test/resources` .
 
 The test cases are known to work using IntelliJ Idea 2021.2.2, with the Antlr4 4.10.1 plug-in (see top-level build.gradle file), and Java 11 JRE & JDK installed.
 
