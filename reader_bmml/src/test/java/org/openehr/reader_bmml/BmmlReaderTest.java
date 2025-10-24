@@ -31,7 +31,7 @@ public class BmmlReaderTest {
     @Test
     public void testAllBmml() throws IOException {
         ReaderTestUtil testRunner = new ReaderTestUtil();
-        testRunner.runTest ("bmml", "bmml", new ElReader(false, false), this.getClass());
+        testRunner.runTest ("bmml", "bmml", new BmmlReader(false, false), this.getClass());
     }
 
 }

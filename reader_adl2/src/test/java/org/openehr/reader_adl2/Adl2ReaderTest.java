@@ -26,13 +26,13 @@ public class Adl2ReaderTest {
     @Test
     public void testAllAdl2() throws IOException {
         ReaderTestUtil testRunner = new ReaderTestUtil();
-        testRunner.runTest ("adls", "adl2", new ElReader(false, false), this.getClass());
+        testRunner.runTest ("adls", "adl2", new Adl2Reader(false, false), this.getClass());
     }
 
     @Test
     public void testAllAdl3() throws IOException {
         ReaderTestUtil testRunner = new ReaderTestUtil();
-        testRunner.runTest ("adls", "adl3", new ElReader(false, false), this.getClass());
+        testRunner.runTest ("adls", "adl3", new Adl2Reader(false, false), this.getClass());
     }
 
 }

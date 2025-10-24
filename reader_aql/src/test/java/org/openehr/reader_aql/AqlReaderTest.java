@@ -27,7 +27,7 @@ public class AqlReaderTest {
     @Test
     public void testAllAql() throws IOException {
         ReaderTestUtil testRunner = new ReaderTestUtil();
-        testRunner.runTest ("aql", "aql", new ElReader(false, false), this.getClass());
+        testRunner.runTest ("aql", "aql", new AqlReader(false, false), this.getClass());
     }
 
 }
