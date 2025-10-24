@@ -1,4 +1,4 @@
-package org.openehr.commonReader;
+package org.openehr.antlr4;
 
 import com.google.common.base.Charsets;
 import org.antlr.v4.runtime.CharStreams;
@@ -7,14 +7,18 @@ import org.junit.jupiter.api.Assertions;
 import org.openehr.common.SyntaxReader;
 import org.reflections.Reflections;
 import org.reflections.scanners.Scanners;
+import org.reflections.util.ClasspathHelper;
+import org.reflections.util.ConfigurationBuilder;
+import org.reflections.util.FilterBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class CommonReaderTestUtil {
+public class ReaderTestUtil {
 
     /**
      * Run test on pass and fail groups of artefacts under a specific resource directory
@@ -24,28 +28,41 @@ public class CommonReaderTestUtil {
      * @param reader an instantiated artefact reader of the correct type for the artefacts.
      * @throws IOException
      */
-    private void runTest (String fileExt, String artefactType, SyntaxReader<?,?> reader) throws IOException {
+    public void runTest (String fileExt, String artefactType, SyntaxReader<?,?> reader, Class<?> sourceModuleClass) throws IOException {
         Reflections reflections;
-        List<String> paths;
+        List<String> passPaths, failPaths;
 
-        // run passing tests
-        reflections = new Reflections (artefactType + ".pass", Scanners.Resources);
-        paths = new ArrayList<>(reflections.getResources (Pattern.compile(".*\\." + fileExt)));
+        // find the paths in callers resources area
+        ClassLoader classLoader = sourceModuleClass.getClassLoader();
+        reflections = new Reflections(
+                new ConfigurationBuilder()
+                        .addClassLoaders(classLoader)
+                        .forPackage(artefactType + ".pass")
+                        .filterInputsBy(new FilterBuilder().includePackage(artefactType + ".pass"))
+                        .setScanners(Scanners.Resources)
+        );
+        passPaths = new ArrayList<>(reflections.getResources (Pattern.compile(".*\\." + fileExt)));
 
-//        paths = new ArrayList<>(reflections.getResources (Pattern.compile(".*anatomical_location_precise\\.v0\\." + fileExt)));
-        int passErrorCount = executeTestGroup ( paths, artefactType, reader);
-        int passGroupCount = paths.size();
+//        passPaths = new ArrayList<>(reflections.getResources (Pattern.compile(".*anatomical_location_precise\\.v0\\." + fileExt)));
+
+        int passErrorCount = executeTestGroup (passPaths, artefactType, reader);
+        int passGroupCount = passPaths.size();
 
         // run failing tests;
         // TODO: many of these tests will pass pure parsing, until
         // we implement validation passes. Most of this should be in archie.
-        reflections = new Reflections (artefactType + ".fail", Scanners.Resources);
-        paths = new ArrayList<>(reflections.getResources (Pattern.compile(".*\\." + fileExt)));
-//        paths = new ArrayList<>(reflections.getResources (Pattern.compile(".*anatomical_location_precise\\.v0\\." + fileExt)));
-        int failErrorCount = executeTestGroup ( paths, artefactType, reader);
-        int failGroupCount = paths.size();
+        reflections = new Reflections(
+                new ConfigurationBuilder()
+                        .addClassLoaders(classLoader)
+                        .forPackage(artefactType + ".fail")
+                        .filterInputsBy(new FilterBuilder().includePackage(artefactType + ".fail"))
+                        .setScanners(Scanners.Resources)
+        );
+        failPaths = new ArrayList<>(reflections.getResources (Pattern.compile(".*\\." + fileExt)));
+        int failErrorCount = executeTestGroup (failPaths, artefactType, reader);
+        int failGroupCount = failPaths.size();
 
-        if (passErrorCount > 0 || failErrorCount != paths.size())
+        if (passErrorCount > 0 || failErrorCount != failPaths.size())
             Assertions.fail(String.format ("%d files failed from %d in pass group; %d files passed from %d in fail group",
                     passErrorCount, passGroupCount, failGroupCount - failErrorCount, failGroupCount));
     }

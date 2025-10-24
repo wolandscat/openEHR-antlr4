@@ -38,8 +38,11 @@ dependencies {
     api "org.slf4j:slf4j-api:${slf4jVersion}"
     implementation "org.slf4j:slf4j-simple:${slf4jVersion}"
 
+    // following only needed to reuse test_fixtures module, created to get
+    // around Intellij inability to support gradle testFixtures source sets
+    implementation "org.junit.jupiter:junit-jupiter-api:${jUnitVersion}"
+
     testImplementation "org.junit.jupiter:junit-jupiter-api:${jUnitVersion}"
-    testFixturesImplementation "org.junit.jupiter:junit-jupiter-api:${jUnitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${jUnitVersion}"
     testRuntimeOnly "org.junit.platform:junit-platform-launcher"
 }

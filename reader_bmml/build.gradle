@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     api project(':reader_common')
+    testImplementation (project(':test_fixtures'))
 }
 
 generateGrammarSource {

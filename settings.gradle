@@ -4,3 +4,5 @@ include 'reader_adl2'
 include 'reader_adl14'
 include 'reader_aql'
 include 'reader_bmml'
+
+include 'test_fixtures'

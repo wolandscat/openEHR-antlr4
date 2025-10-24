@@ -2,6 +2,10 @@ plugins {
     id "java-build-conventions"
 }
 
+dependencies {
+    testImplementation (project(':test_fixtures'))
+}
+
 generateGrammarSource {
     maxHeapSize = "128m"
     arguments += ['-package', 'org.openehr.reader_common', '-visitor', '-listener']

@@ -27,6 +27,7 @@
             <option value="$PROJECT_DIR$/reader_aql" />
             <option value="$PROJECT_DIR$/reader_bmml" />
             <option value="$PROJECT_DIR$/reader_common" />
+            <option value="$PROJECT_DIR$/test_fixtures" />
           </set>
         </option>
       </GradleProjectSettings>
