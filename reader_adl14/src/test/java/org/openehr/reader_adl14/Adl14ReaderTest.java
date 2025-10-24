@@ -15,7 +15,7 @@ public class Adl14ReaderTest {
     @Test
     public void testAllAdl14() throws IOException {
         ReaderTestUtil testRunner = new ReaderTestUtil();
-        testRunner.runTest ("adl", "adl14", new Adl14Reader((false, false), this.getClass());
+        testRunner.runTest ("adl", "adl14", new Adl14Reader(false, false), this.getClass());
     }
 
 }
