@@ -14,11 +14,11 @@ This is a development repository containing Antlr4 grammars for most of the lang
 
 == How is the project structured?
 
-This is a multi-module project, using gradle as the build system, and normally built using IntelliJ.
+This is a multi-module project, using gradle as the build system. IntelliJ is the usual IDE, but it is configured with gradle rather than the internal build and test.
 
 === Build Design
 
-Building is set up with an attempt at best practices using gradle 9.1.0 or later. Common build specifications are in the gradle specialmodule `buildSrc`, which contains a file `java-build-conventions.gradle`, which defines a plugin that can be re-used in all other modules using the following include:
+Building is set up with an attempt at best practices using gradle 9.1.0 or later. Common build specifications are in the gradle special module `buildSrc`, which contains a file `java-build-conventions.gradle`, which defines a plugin that can be re-used in all other modules using the following include:
 
 ```
 plugins {
@@ -48,6 +48,8 @@ dependencies {
 }
 ```
 
+NOTE: to use the Antlr plugin preview function for any of the top-level grammars, e.g. `bmml`, testing within te `reader_bmml` module will not work. Although there are gradle rules to make gradle pass the 'grammar import' directory to the antlr plug-in code generator during gradle building, the plugin previewer does not use the import directory, and cannot correctly evaluate a grammar in one of these modules, because it doesn't see the referenced grammars in `reader_common`. To run the previewer therefore, there is currently no option but to copy the grammar files from `reader_bmml`, `reader_adl2` etc, to the `antlr` directory in `reader_common` and do it there, followed by removing these files.
+
 == Testing
 
 Each module contains its own test class(es) in `src/test/xxx` and test files, under `src/test/resources`, in the usual way.
@@ -55,6 +57,8 @@ Each module contains its own test class(es) in `src/test/xxx` and test files, un
 Common test utility code is in the module `test_fixtures`. Ideally it would be in `reader_common/src/testFixtures`, but this could not be made to work due to IntelliJ's documented inability to handle `testFixtures` properly (as of end 2025).
 
 The test cases are known to generally work using IntelliJ Idea 2025.x, with the Antlr4 4.13.1 plug-in (see top-level build.gradle file), and Java 17 JRE & JDK installed.
+
+To run the tests in `reader_adl2`, for example, use the test class  `reader_adl2/src/test/java/org/openehr/reader_adl2/Adl2ReaderTest.java`. A similar test class can be found in the other `reader_xxx` modules.
 
 == Related Specifications
 
